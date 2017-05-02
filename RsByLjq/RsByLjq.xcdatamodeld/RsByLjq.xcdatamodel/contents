@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11542" systemVersion="16B2555" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="RS_Category" representedClassName="RS_Category" syncable="YES" codeGenerationType="class">
+        <attribute name="rs_c_brief" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rs_c_dayTopic" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rs_c_headImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rs_c_id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rs_c_lastTopicId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rs_c_lastTopId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rs_c_lastTopTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="rs_c_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rs_c_newTopic" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rs_c_posts" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rs_c_ranking" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rs_c_rootCat" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rs_c_topic" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rs_c_upDown" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="RS_Floor" representedClassName="RS_Floor" syncable="YES" codeGenerationType="class">
+        <attribute name="rs_f_callUserId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rs_f_callUserName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rs_f_content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rs_f_createTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="rs_f_floorNum" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rs_f_id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rs_f_userId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rs_f_userName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="RS_Post" representedClassName="RS_Post" syncable="YES" codeGenerationType="class">
+        <attribute name="rs_p_authorId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rs_p_authorName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rs_p_browseNum" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rs_p_catId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rs_p_catName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rs_p_creatTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="rs_p_id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rs_p_lastModifyTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="rs_p_replyNum" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rs_p_topic" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="RS_User" representedClassName="RS_User" syncable="YES" codeGenerationType="class">
+        <attribute name="rs_u_chip" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rs_u_downLoading" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rs_u_forumLevel" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rs_u_gold" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rs_u_grade" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rs_u_headImage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rs_u_id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rs_u_label" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rs_u_liveness" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="rs_u_moral" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rs_u_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rs_u_posts" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rs_u_recordDay" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rs_u_recordDays" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rs_u_score" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rs_u_topics" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rs_u_torrent" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rs_u_uploading" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="RS_User" positionX="-63" positionY="-18" width="128" height="315"/>
+        <element name="RS_Post" positionX="-54" positionY="126" width="128" height="195"/>
+        <element name="RS_Floor" positionX="-36" positionY="135" width="128" height="165"/>
+        <element name="RS_Category" positionX="-18" positionY="153" width="128" height="255"/>
+    </elements>
+</model>
