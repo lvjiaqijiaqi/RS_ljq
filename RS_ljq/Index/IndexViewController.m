@@ -15,10 +15,9 @@
 #import "CategoryView.h"
 #import "IndexTableViewDelegate.h"
 #import "ForumViewController.h"
-#import "Post.h"
 
 //model
-#import "IndexZoneModel.h"
+#import "CornerModel.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
 #import "CascadingMenuView.h"
@@ -61,12 +60,7 @@
     [self.indexTableView registerNib:[UINib nibWithNibName:@"ImageCell" bundle:nil] forCellReuseIdentifier:@"ImageCell"];
     [self.view addSubview:self.indexTableView];
     __weak typeof(self) weakSelf = self;
-    [self.indexTableViewDelegate setSelectHandle:^(NSInteger tid ,NSString *str) {
-        Post *pM = [[Post alloc] init];
-        pM.pid = tid;
-        pM.name = str;
-        PostViewController *pVC = [[PostViewController alloc] initWithPostModel:pM];
-        [weakSelf.navigationController pushViewController:pVC animated:YES];
+    [self.indexTableViewDelegate setSelectHandle:^(NSInteger tid ,NSString *str) { //跳转
     }];
     
     //categoryView
@@ -103,12 +97,6 @@
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     UIColor * color = [UIColor colorWithRed:0/255.0 green:175/255.0 blue:240/255.0 alpha:1];
     [self.navigationController.navigationBar lt_setBackgroundColor:[color colorWithAlphaComponent:1]];
-}
-- (void)viewDidLoad {
-    
-    [super viewDidLoad];
-    [self initPlateSegment];
-    [self initRecommendSegment];
     
     [RsNetworking indexWithcompletionHandler:^(NSString *content){
         IndexParse *parse =  [[IndexParse alloc] init];
@@ -119,10 +107,13 @@
         [self.categoryView selectIndex:0];
         [self.cascadingMenuView updateWorking];
     }];
-    
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self initPlateSegment];
+    [self initRecommendSegment];
     [self.segmentedControl addTarget:self action:@selector(switchThePage:) forControlEvents:UIControlEventValueChanged];
-    
-    
 }
 
 -(void)switchThePage:(UISegmentedControl *)Seg{

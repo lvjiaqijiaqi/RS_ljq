@@ -12,7 +12,7 @@
 #import "NSString+DataToString.h"
 
 #import "Floor.h"
-#import "Post.h"
+#import "ForumTopicModel.h"
 
 @implementation ForumParse
 
@@ -46,20 +46,20 @@
 }
 
 //解析帖子信息
--(Post *)parsePostMsg:(HTMLNode *)postNode{
+-(ForumTopicModel *)parsePostMsg:(HTMLNode *)postNode{
     
-    Post *post = [[Post alloc] init];
+    ForumTopicModel *topic = [[ForumTopicModel alloc] init];
     
     if ([postNode findChildOfClass:@"hm ptn"]) {
         NSArray *m = [[postNode findChildOfClass:@"hm ptn"] findChildrenOfClass:@"xi1"];
-        post.reply = [m[0] allContents];;
-        post.scan= [m[1] allContents];;
-        post.name = [[[postNode findChildOfClass:@"plc ptm pbn vwthd"] findChildOfClass:@"ts"] allContents];
-        post.pid = [[[postNode findChildOfClass:@"xg1"] findChildTag:@"a"] getAttributeNamed:@"href"];
+        topic.t_replyNum = [m[0] allContents];;
+        topic.t_scanNum= [m[1] allContents];;
+        topic.t_Name = [[[postNode findChildOfClass:@"plc ptm pbn vwthd"] findChildOfClass:@"ts"] allContents];
+        topic.t_Id = [[[[postNode findChildOfClass:@"xg1"] findChildTag:@"a"] getAttributeNamed:@"href"] requireFristInt];
     }else if([postNode findChildOfClass:@"cl"]){
         
     }
-    return post;
+    return topic;
     
 }
 
@@ -112,12 +112,12 @@
     BOOL isLogin = [super HTMLParseLoginState:bodyNode];
     
     HTMLNode *postNode = [bodyNode findChildWithAttribute:@"id" matchingName:@"postlist" allowPartial:NO];
-    Post *post = [self parsePostMsg:[postNode findChildTag:@"table"]];
+    ForumTopicModel *topic = [self parsePostMsg:[postNode findChildTag:@"table"]];
 
     HTMLNode * pl_topNode = [postNode findChildWithAttribute:@"id" matchingName:@"pl_top" allowPartial:NO];
     if (pl_topNode) { //有金币信息
-        post.award = [[pl_topNode findChildOfClass:@"pls vm ptm"] allContents];
-        post.awardDetails = [[pl_topNode findChildOfClass:@"plc ptm pbm xi1"] allContents];
+        topic.t_award = [[pl_topNode findChildOfClass:@"pls vm ptm"] allContents];
+        topic.t_awardDetails = [[pl_topNode findChildOfClass:@"plc ptm pbm xi1"] allContents];
     }
     
     NSMutableArray<Floor*> *floors = [NSMutableArray arrayWithCapacity:10];
@@ -161,10 +161,10 @@
     self.floors = floors;
     
     HTMLNode *pageRootNode = [[[bodyNode findChildOfClass:@"pgs mtm mbm cl"] findChildOfClass:@"pg"] findChildTag:@"label"];
-    post.currentPage = [[[pageRootNode findChildTag:@"input"] getAttributeNamed:@"value"] integerValue];
-    post.maxPage = [[[pageRootNode findChildTag:@"span"] allContents] requireFristInt];
+    topic.t_currentPage = [[[pageRootNode findChildTag:@"input"] getAttributeNamed:@"value"] integerValue];
+    topic.t_maxPage = [[[pageRootNode findChildTag:@"span"] allContents] requireFristInt];
     
-    _post = post;
+    _topic = topic;
     
 }
 

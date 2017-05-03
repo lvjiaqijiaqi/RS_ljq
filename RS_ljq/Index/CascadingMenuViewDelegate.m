@@ -8,7 +8,9 @@
 
 #import "CascadingMenuViewDelegate.h"
 #import "IndexParse.h"
-#include "IndexZoneModel.h"
+
+#include "CornerModel.h"
+
 #import <SDWebImage/UIImageView+WebCache.h>
 
 @interface CascadingMenuViewDelegate()
@@ -29,10 +31,10 @@
 -(UITableViewCell *)embellishCell:(UITableViewCell *)tableViewCell cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
-    IndexZoneModel *model = [[[self.indexParse.zoneLists allValues] objectAtIndex:section] objectAtIndex:row];
-    tableViewCell.textLabel.text = model.name;
+    CornerModel *model = [[[self.indexParse.zoneLists allValues] objectAtIndex:section] objectAtIndex:row];
+    tableViewCell.textLabel.text = model.c_Name;
     tableViewCell.detailTextLabel.text = [model subsiteContent];
-    [tableViewCell.imageView sd_setImageWithURL:[NSURL URLWithString:model.img] placeholderImage:[UIImage imageNamed:@"ym"]];
+    [tableViewCell.imageView sd_setImageWithURL:[NSURL URLWithString:model.c_Img] placeholderImage:[UIImage imageNamed:@"ym"]];
     return tableViewCell;
 }
 
@@ -41,7 +43,7 @@
 }
 
 -(void)tableView:(CascadingMenuView *)cascadingMenuView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    IndexZoneModel *model = [[[self.indexParse.zoneLists allValues] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-    self.selectOperationBlock(model.zid);
+    CornerModel *model = [[[self.indexParse.zoneLists allValues] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    self.selectOperationBlock(model.c_Id);
 }
 @end

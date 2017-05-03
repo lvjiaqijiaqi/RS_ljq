@@ -7,12 +7,15 @@
 //
 
 #import "IndexTableViewDelegate.h"
+
 #import "IndexParse.h"
-#import "IndexTopicRandingModel.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+
+#import "TopicModel.h"
+
 #import "PostTableViewCell.h"
 #import "ImageTableViewCell.h"
-#import <SDWebImage/UIImageView+WebCache.h>
-#import "IndexImageModel.h"
+
 
 @interface IndexTableViewDelegate()
 
@@ -44,38 +47,29 @@
     
     if (tableView.tag == 0) {
         ImageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ImageCell"];
-        IndexImageModel *model = (IndexImageModel *)[[self databyIndex:tableView.tag] objectAtIndex:indexPath.row];
-        [cell.ImageV sd_setImageWithURL:[NSURL URLWithString:model.imageUrl] placeholderImage:[UIImage imageNamed:@"ym1"]];
-        cell.detailLabel.text = model.imageTitle;
+        TopicModel *model = (TopicModel *)[[self databyIndex:tableView.tag] objectAtIndex:indexPath.row];
+        [cell.ImageV sd_setImageWithURL:[NSURL URLWithString:model.t_Img] placeholderImage:[UIImage imageNamed:@"ym1"]];
+        cell.detailLabel.text = model.t_Name;
         
         return cell;
     }
     
     PostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell"];
-    IndexTopicRandingModel *model = (IndexTopicRandingModel *)[[self databyIndex:tableView.tag] objectAtIndex:indexPath.row];
+    TopicModel *model = (TopicModel *)[[self databyIndex:tableView.tag] objectAtIndex:indexPath.row];
     
-    cell.PostNameLabel.text = model.topicName;
+    cell.PostNameLabel.text = model.t_Name;
     cell.PostNameLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-    cell.subMsg.text = model.topicAddition;
+    cell.subMsg.text = model.t_Addition;
     cell.PostNameLabel.numberOfLines = 0;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     return cell;
     
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSInteger tid = 0;
-    NSString *Tname =@"";
-    if (tableView.tag == 0) {
-        IndexImageModel *model = (IndexImageModel *)[[self databyIndex:tableView.tag] objectAtIndex:indexPath.row];
-        tid = model.topicId;
-        Tname = model.imageTitle;
-    }else{
-        IndexTopicRandingModel *model = (IndexTopicRandingModel *)[[self databyIndex:tableView.tag] objectAtIndex:indexPath.row];
-        tid = model.topicId;
-        Tname = model.topicName;
-    }
-    self.completeHandle(tid,Tname);
+    TopicModel *model = (TopicModel *)[[self databyIndex:tableView.tag] objectAtIndex:indexPath.row];
+    self.completeHandle(model.t_Id,model.t_Name);
 }
 
 -(NSArray *)databyIndex:(NSInteger)section{

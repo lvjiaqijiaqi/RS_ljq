@@ -24,4 +24,6 @@ typedef NS_ENUM(NSUInteger, ForumFilter) {
 +(void)PostWithFid:(NSInteger)fid completionHandler:(void (^)(NSString *str))completionHandler;
 
 +(void)PostWithFid:(NSInteger)fid Page:(NSInteger)page Authorid:(NSInteger)authorid Order:(NSInteger)order completionHandler:(void (^)(NSString *str))completionHandler;
+
++(void)homePage:(NSInteger)uid andType:(NSString *)type completionHandler:(void (^)(NSString *str))completionHandler;
 @end

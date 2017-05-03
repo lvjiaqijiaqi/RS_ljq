@@ -5,13 +5,17 @@
 //  Created by lvjiaqi on 2017/4/19.
 //  Copyright © 2017年 lvjiaqi. All rights reserved.
 //
+#import "IndexParse.h"
+
 #import "HTMLNode.h"
 #import "HTMLParser.h"
-#import "IndexParse.h"
-#import "IndexImageModel.h"
-#import "IndexTopicRandingModel.h"
+
+#import "TopicModel.h"
+
+
 #import "IndexUsrRankingModel.h"
-#import "IndexZoneModel.h"
+#import "CornerModel.h"
+
 #import "NSString+DataToString.h"
 
 #define newTopicDivName "portal_block_314_content"
@@ -28,113 +32,55 @@
 
 @implementation IndexParse
 
+
+-(NSArray<TopicModel *>*)IndexTopicList:(NSString *)DIVNAME ofCat:(TopicCat)topicCat onRootNode:(HTMLNode*)rootNode{
+    HTMLNode * postNode = [rootNode findChildWithAttribute:@"id" matchingName:DIVNAME allowPartial:NO];
+    NSArray<HTMLNode *> *topicLis =  [postNode findChildTags:@"li"];
+    NSMutableArray<TopicModel *>* topicLisArr = [NSMutableArray arrayWithCapacity:10];
+    [topicLis enumerateObjectsUsingBlock:^(HTMLNode * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        TopicModel *topicModel = [[TopicModel alloc] init];
+        NSArray<HTMLNode *> *contentNodes = [obj findChildTags:@"a"];
+        topicModel.t_Name = [contentNodes[0] allContents];
+        topicModel.t_Addition = [contentNodes[0] getAttributeNamed:@"title"];
+        topicModel.t_Id = [[contentNodes[0] getAttributeNamed:@"href"] requireFristInt];
+        topicModel.t_userName = [[obj findChildTag:@"em"] allContents];
+        topicModel.t_Cat = topicCat;
+        
+        [topicLisArr addObject:topicModel];
+    }];
+    
+    return [topicLisArr copy];
+}
+
+
 -(void)HTMLParseContent:(NSString *)content{
   
     NSError *error = nil;
     HTMLParser *parser = [[HTMLParser alloc] initWithString:content error:&error];
     HTMLNode *bodyNode = [parser body];
     
-    // topicLis_new
-    HTMLNode *postNode = [bodyNode findChildWithAttribute:@"id" matchingName:@newTopicDivName allowPartial:NO];
-    NSArray<HTMLNode *> *topicLis =  [postNode findChildTags:@"li"];
-    NSMutableArray<IndexTopicRandingModel *>* topicLis_new = [NSMutableArray arrayWithCapacity:10];
-    [topicLis enumerateObjectsUsingBlock:^(HTMLNode * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        IndexTopicRandingModel *IndexNewTopic = [[IndexTopicRandingModel alloc] init];
-        NSArray<HTMLNode *> *contentNodes = [obj findChildTags:@"a"];
-        IndexNewTopic.topicName = [contentNodes[0] allContents];
-        IndexNewTopic.topicUser = [contentNodes[1] allContents];
-        IndexNewTopic.topicAddition = [contentNodes[0] getAttributeNamed:@"title"];
-        IndexNewTopic.topicId = [contentNodes[0] getAttributeNamed:@"href"];
-        IndexNewTopic.topicCategory = RS_topicNew;
-        [topicLis_new addObject:IndexNewTopic];
-    }];
-    _topicLis_new = topicLis_new;
     
     //topicLis_imgHot
-    postNode = [bodyNode findChildWithAttribute:@"id" matchingName:@imageTopicDivName allowPartial:NO];
-    topicLis =  [postNode findChildTags:@"li"];
-    NSMutableArray<IndexImageModel *>* topicLis_imgHot = [NSMutableArray arrayWithCapacity:10];
+    HTMLNode * postNode = [bodyNode findChildWithAttribute:@"id" matchingName:@imageTopicDivName allowPartial:NO];
+    NSArray<HTMLNode *> *topicLis =  [postNode findChildTags:@"li"];
+    
+    NSMutableArray<TopicModel *>* topicLis_imgHot = [NSMutableArray arrayWithCapacity:10];
     [topicLis enumerateObjectsUsingBlock:^(HTMLNode * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        IndexImageModel *IndexNewTopic = [[IndexImageModel alloc] init];
-        
-        IndexNewTopic.topicId = [[[obj findChildTag:@"a"] getAttributeNamed:@"href"] requireFristInt]; 
-        HTMLNode *contentA = [obj findChildTag:@"img"];
-        IndexNewTopic.imageUrl = [contentA getAttributeNamed:@"src"];
-        IndexNewTopic.imageUrl =  [IndexNewTopic.imageUrl substringWithRange:NSMakeRange(1, [IndexNewTopic.imageUrl length] - 1)];
-        IndexNewTopic.imageUrl = [NSString stringWithFormat:@"http://rs.xidian.edu.cn%@",IndexNewTopic.imageUrl];
-        HTMLNode *emNode = [obj findChildTag:@"span"];
-        IndexNewTopic.imageTitle = [emNode allContents];
-        [topicLis_imgHot addObject:IndexNewTopic];
+        TopicModel *topicModel = [[TopicModel alloc] init];
+        topicModel.t_Id = [[[obj findChildTag:@"a"] getAttributeNamed:@"href"] requireFristInt];
+        topicModel.t_Img = [NSString stringWithFormat:@"http://rs.xidian.edu.cn%@",[[[obj findChildTag:@"img"] getAttributeNamed:@"src"] substringFromIndex:1]];
+        topicModel.t_Name = [[obj findChildTag:@"span"] allContents];
+        [topicLis_imgHot addObject:topicModel];
     }];
     _topicLis_imgHot = topicLis_imgHot;
     
-    //topicLis_newReply
-    postNode = [bodyNode findChildWithAttribute:@"id" matchingName:@replyTopicDivName allowPartial:NO];
-    topicLis =  [postNode findChildTags:@"li"];
-    NSMutableArray<IndexTopicRandingModel *>* topicLis_newReply = [NSMutableArray arrayWithCapacity:10];
-    [topicLis enumerateObjectsUsingBlock:^(HTMLNode * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        IndexTopicRandingModel *IndexNewTopic = [[IndexTopicRandingModel alloc] init];
-        NSArray<HTMLNode *> *contentNodes = [obj findChildTags:@"a"];
-        IndexNewTopic.topicName = [contentNodes[0] allContents];
-        IndexNewTopic.topicAddition = [contentNodes[0] getAttributeNamed:@"title"];
-        IndexNewTopic.topicId = [[contentNodes[0] getAttributeNamed:@"href"] requireFristInt];
-        NSArray<HTMLNode *> *emNodes = [obj findChildTags:@"em"];
-        IndexNewTopic.topicUser = [emNodes[0] allContents];
-        IndexNewTopic.topicCategory = RS_topicLastReply;
-        [topicLis_newReply addObject:IndexNewTopic];
-    }];
-    _topicLis_newReply = topicLis_newReply;
+    _topicLis_new = [self IndexTopicList:@newTopicDivName ofCat:RS_topicNew onRootNode:bodyNode];
+    _topicLis_newReply = [self IndexTopicList:@replyTopicDivName ofCat:RS_topicLastReply onRootNode:bodyNode];
+    _topicLis_recommend = [self IndexTopicList:@recomendTopicDivName ofCat:RS_topicRecomend onRootNode:bodyNode];
+    _topicLis_dayHot = [self IndexTopicList:@recomendTopicDivName ofCat:RS_topicDayHot onRootNode:bodyNode];
+    _topicLis_dayHot = [self IndexTopicList:@weekHotTopicDivName ofCat:RS_topicWeekHot onRootNode:bodyNode];
     
-    //topicLis_recommend
-    postNode = [bodyNode findChildWithAttribute:@"id" matchingName:@recomendTopicDivName allowPartial:NO];
-    topicLis =  [postNode findChildTags:@"li"];
-    NSMutableArray<IndexTopicRandingModel *>* topicLis_recommend = [NSMutableArray arrayWithCapacity:10];
-    [topicLis enumerateObjectsUsingBlock:^(HTMLNode * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        IndexTopicRandingModel *IndexNewTopic = [[IndexTopicRandingModel alloc] init];
-        NSArray<HTMLNode *> *contentNodes = [obj findChildTags:@"a"];
-        IndexNewTopic.topicName = [contentNodes[0] allContents];
-        IndexNewTopic.topicAddition = [contentNodes[0] getAttributeNamed:@"title"];
-        IndexNewTopic.topicId = [[contentNodes[0] getAttributeNamed:@"href"] requireFristInt];
-        NSArray<HTMLNode *> *emNodes = [obj findChildTags:@"em"];
-        IndexNewTopic.topicUser = [emNodes[0] allContents];
-        IndexNewTopic.topicCategory = RS_topicRecomend;
-        [topicLis_recommend addObject:IndexNewTopic];
-    }];
-    _topicLis_recommend = topicLis_recommend;
     
-    //_topicLis_dayHot
-    postNode = [bodyNode findChildWithAttribute:@"id" matchingName:@recomendTopicDivName allowPartial:NO];
-    topicLis =  [postNode findChildTags:@"li"];
-    NSMutableArray<IndexTopicRandingModel *>* topicLis_dayHot = [NSMutableArray arrayWithCapacity:10];
-    [topicLis enumerateObjectsUsingBlock:^(HTMLNode * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        IndexTopicRandingModel *IndexNewTopic = [[IndexTopicRandingModel alloc] init];
-        NSArray<HTMLNode *> *contentNodes = [obj findChildTags:@"a"];
-        IndexNewTopic.topicName = [contentNodes[0] allContents];
-        IndexNewTopic.topicAddition = [contentNodes[0] getAttributeNamed:@"title"];
-        IndexNewTopic.topicId = [[contentNodes[0] getAttributeNamed:@"href"] requireFristInt];
-        NSArray<HTMLNode *> *emNodes = [obj findChildTags:@"em"];
-        IndexNewTopic.topicUser = [emNodes[0] allContents];
-        IndexNewTopic.topicCategory = RS_topicDayHot;
-        [topicLis_dayHot addObject:IndexNewTopic];
-    }];
-    _topicLis_dayHot = topicLis_dayHot;
-    
-    //_topicLis_weekHot
-    postNode = [bodyNode findChildWithAttribute:@"id" matchingName:@weekHotTopicDivName allowPartial:NO];
-    topicLis =  [postNode findChildTags:@"li"];
-    NSMutableArray<IndexTopicRandingModel *>* topicLis_weekHot = [NSMutableArray arrayWithCapacity:10];
-    [topicLis enumerateObjectsUsingBlock:^(HTMLNode * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        IndexTopicRandingModel *IndexNewTopic = [[IndexTopicRandingModel alloc] init];
-        NSArray<HTMLNode *> *contentNodes = [obj findChildTags:@"a"];
-        IndexNewTopic.topicName = [contentNodes[0] allContents];
-        IndexNewTopic.topicAddition = [contentNodes[0] getAttributeNamed:@"title"];
-        IndexNewTopic.topicId = [[contentNodes[0] getAttributeNamed:@"href"] requireFristInt];
-        NSArray<HTMLNode *> *emNodes = [obj findChildTags:@"em"];
-        IndexNewTopic.topicUser = [emNodes[0] allContents];
-        IndexNewTopic.topicCategory = RS_topicDayHot;
-        [topicLis_weekHot addObject:IndexNewTopic];
-    }];
-    _topicLis_weekHot = topicLis_weekHot;
     
     //userRankings
     postNode = [bodyNode findChildWithAttribute:@"id" matchingName:@userRankingDivName allowPartial:NO];
@@ -151,7 +97,7 @@
     }];
     _userRankings = userRankings;
     
-    //zone分区类别
+    //zone分区
     HTMLNode *zoneNode = [bodyNode findChildOfClass:@"fl bm"];
     NSArray *zones = [zoneNode findChildrenOfClass:@"bm bmw  flg cl"];
     NSMutableDictionary *zoneLists = [NSMutableDictionary dictionaryWithCapacity:zones.count];
@@ -164,35 +110,28 @@
         NSString *zoneName = [[[obj findChildOfClass:@"bm_h cl"] findChildTag:@"h2"] allContents];
         NSArray *TrNodes = [obj findChildTags:@"td"];
             
-        NSMutableArray *subZoneLists = [NSMutableArray arrayWithCapacity:TrNodes.count];
+        NSMutableArray<CornerModel *> *subZoneLists = [NSMutableArray arrayWithCapacity:TrNodes.count];
         for (HTMLNode *node in TrNodes) {
-            IndexZoneModel *m =  [[IndexZoneModel alloc] init];
-            m.img = [[node findChildTag:@"img"] getAttributeNamed:@"src"];
-            if (m.img) {
-                m.img =  [m.img substringWithRange:NSMakeRange(1, [m.img length] - 1)];
-                m.img = [NSString stringWithFormat:@"http://rs.xidian.edu.cn%@",m.img];
-                m.name = [[[node findChildTag:@"dt"] findChildTag:@"a"] allContents];
-                NSString *urlSSS = [[[node findChildTag:@"dt"] findChildTag:@"a"] getAttributeNamed:@"href"];
-                
-                m.zid =  [urlSSS requireFristInt];
-                
-                m.active = [[[node findChildTag:@"dt"] findChildTag:@"em"] allContents];
+            CornerModel *m =  [[CornerModel alloc] init];
+            NSString *imgUrl = [[node findChildTag:@"img"] getAttributeNamed:@"src"];
+            if (imgUrl) {
+                m.c_Img = [NSString stringWithFormat:@"http://rs.xidian.edu.cn%@",[imgUrl substringFromIndex:1]];
+                m.c_Name = [[[node findChildTag:@"dt"] findChildTag:@"a"] allContents];
+                m.c_Id =  [[[[node findChildTag:@"dt"] findChildTag:@"a"] getAttributeNamed:@"href"] requireFristInt];
+                m.c_Active = [[[node findChildTag:@"dt"] findChildTag:@"em"] allContents];
             
                 NSArray *dds = [node findChildTags:@"dd"];
-            
                 NSArray *ems = [dds[0] findChildTags:@"em"];
-                m.topicNum = [ems[0] allContents];
-                m.topics = [ems[1] allContents];
-            
-                m.lastActive =  [dds[1] allContents];
+                m.c_TopicNum = [ems[0] allContents];
+                m.c_PostNum = [ems[1] allContents];
+                m.c_LastActive =  [dds[1] allContents];
                 [subZoneLists addObject:m];
+                }
             }
-        }   
-        [zoneLists setObject:subZoneLists forKey:zoneName];
+            [zoneLists setObject:subZoneLists forKey:zoneName];
         }
     }];
-    
-    _zoneLists = zoneLists;
+        _zoneLists = zoneLists;
 }
 
 -(void)ReportError:(NSError *)error{

@@ -7,20 +7,24 @@
 //
 
 #import "ForumViewController.h"
-#import "RsNetworking.h"
-#import "ZoneParse.h"
-#import "ForumTableViewCell.h"
-#import "HeadView.h"
+
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <MJRefresh.h>
+#import "UINavigationBar+Awesome.h"
+#import "RsNetworking.h"
+
+#import "ZoneParse.h"
+#import "ForumTopicModel.h"
+#import "CornerDetailModel.h"
+
+#import "ForumTableViewCell.h"
+#import "HeadView.h"
 #import "MJDIYHeader.h"
 #import "CategoryView.h"
-#import "UINavigationBar+Awesome.h"
 
 #import "PostViewController.h"
 
-#import "Post.h"
-#import "Part.h"
+
 
 #define NAVBAR_CHANGE_POINT - 150
 #define HEADERHEIGHT 200
@@ -28,8 +32,7 @@
 
 @interface ForumViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong) UITableView *ForumTableView;
-@property(nonatomic,strong) Part *part;
-@property(nonatomic,strong) NSMutableArray<Post *> *postList;
+@property(nonatomic,strong) NSMutableArray<ForumTopicModel *> *topicList;
 @property(nonatomic,strong) HeadView *headView;
 @property(nonatomic,strong) CategoryView *cateGoryView;
 @end
@@ -73,14 +76,9 @@
             [weakSelf.ForumTableView.mj_header endRefreshing];
         }];
         [header setPullingBlock:^(float per){
-            /*CGFloat dis = per*50;
-            CGFloat ratio = (dis+200.0)/200.0;
-            CGAffineTransform trans1 = CGAffineTransformConcat(CGAffineTransformMakeScale(ratio, ratio), CGAffineTransformMakeTranslation(0, -dis/2));
-            weakSelf.headView.backgroundImgView.transform = trans1;*/
         }];
         _ForumTableView.mj_header = header;
-        
-        
+  
     }
     return _ForumTableView;
 }
@@ -89,7 +87,7 @@
     [super viewDidLoad];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.postList = [NSMutableArray array];
+    self.topicList = [NSMutableArray array];
     
     [self.ForumTableView.mj_header beginRefreshing];
 }
@@ -144,15 +142,14 @@
     [RsNetworking forumWithFilter:filter andFid:_fid Page:1 completionHandler:^(NSString *str) {
         ZoneParse *fp = [[ZoneParse alloc] init];
         [fp HTMLParseContent:str];
-        [self.postList removeAllObjects];
-        [self.postList addObjectsFromArray:fp.PostList];
+        [self.topicList removeAllObjects];
+        [self.topicList addObjectsFromArray:fp.topicList];
         [self.ForumTableView reloadData];
-        self.headView.nameLabel.text = fp.headPart.name;
-        self.headView.detailsLabel.text = fp.headPart.details ;
-        self.headView.addtionLabel.text = [fp.headPart additionStr];
+        self.headView.nameLabel.text = fp.corner.c_Name;
+        self.headView.detailsLabel.text = fp.corner.c_Details ;
+        self.headView.addtionLabel.text = [fp.corner moderatorsAddition];
         self.headView.backgroundImgView.alpha = 0.75;
-        //self.headView.backgroundColor = [UIColor blackColor];
-        [self.headView.backgroundImgView sd_setImageWithURL:[NSURL URLWithString:fp.headPart.img]];
+        [self.headView.backgroundImgView sd_setImageWithURL:[NSURL URLWithString:fp.corner.c_HeaderImg]];
     }];
 }
 
@@ -163,23 +160,22 @@
     return 1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [self.postList count];
+    return [self.topicList count];
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     ForumTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell"];
-    Post *model =  [self.postList objectAtIndex:indexPath.row];
-    cell.nameLabel.text = model.name;
-    cell.additonLabel.text = [model addition_publish];
+    ForumTopicModel *model =  [self.topicList objectAtIndex:indexPath.row];
+    cell.nameLabel.text = model.t_Name;
+    cell.additonLabel.text = [model subheading];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.scanLabel.text = model.scan;
-    cell.replyLabel.text = model.reply;
+    cell.scanLabel.text = model.t_scanNum;
+    cell.replyLabel.text = model.t_replyNum;
     return cell;
 }
 
 #pragma -mark- tableViewDelegate
-
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
-       Post *model =  [self.postList objectAtIndex:indexPath.row];
+       ForumTopicModel *model =  [self.topicList objectAtIndex:indexPath.row];
        PostViewController *posVC = [[PostViewController alloc] initWithPostModel:model];
        [self.navigationController pushViewController:posVC animated:YES];
 }

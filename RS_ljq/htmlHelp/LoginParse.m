@@ -14,7 +14,7 @@
 
 +(NSString *)HTMLParseContent:(NSString *)content success:(nullable void (^)(NSArray *))successBlock{
     
-    NSLog(@"%@",content);
+    //NSLog(@"%@",content);
     NSError *error;
     HTMLParser *parser = [[HTMLParser alloc] initWithString:content error:&error];
     HTMLNode *bodyNode = [parser body];

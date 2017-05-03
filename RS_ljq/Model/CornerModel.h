@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Corner : NSObject
+@interface CornerModel : NSObject
 
 @property(nonatomic,assign) NSInteger c_Id;
 @property(nonatomic,strong) NSString *c_Name; //zone名字

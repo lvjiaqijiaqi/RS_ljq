@@ -6,9 +6,9 @@
 //  Copyright © 2017年 lvjiaqi. All rights reserved.
 //
 
-#import "Corner.h"
+#import "CornerModel.h"
 
-@implementation Corner
+@implementation CornerModel
 
 -(NSString *)subsiteContent{
     return [NSString stringWithFormat:@"%@  %@",_c_Name,_c_TopicNum];

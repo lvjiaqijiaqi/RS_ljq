@@ -14,7 +14,6 @@
 @property(strong,nonatomic) NSString *grade; //等级
 @property(strong,nonatomic) NSString *img; //头像
 
-
 @property(strong,nonatomic) NSString *money; //金币
 @property(strong,nonatomic) NSString *upload; //上传量
 @property(strong,nonatomic) NSString *download; //下载量
@@ -32,4 +31,5 @@
 @property(strong,nonatomic) NSString *registerTime; //注册时间
 @property(strong,nonatomic) NSString *inlineTime; //在线时间
 @property(strong,nonatomic) NSString *lastSignTime; //上次离线时间
+
 @end

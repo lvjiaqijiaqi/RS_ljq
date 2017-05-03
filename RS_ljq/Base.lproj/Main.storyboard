@@ -9,11 +9,47 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--个人-->
+        <scene sceneID="Qc0-EJ-m5m">
+            <objects>
+                <navigationController id="tYk-FI-nt5" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="个人" id="vlb-2q-EKi"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Tvc-VG-dft">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="u3Y-fW-5BF" kind="relationship" relationship="rootViewController" id="9kL-Oh-tJp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dsv-ZA-F9H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-39" y="-1217"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="VsD-53-Tdy">
+            <objects>
+                <viewController id="u3Y-fW-5BF" customClass="HomeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8cc-aN-KDf"/>
+                        <viewControllerLayoutGuide type="bottom" id="KD8-by-4M5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JOv-oP-QNH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="v4s-bc-h39"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LQp-qC-DBy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="596" y="-1218.440779610195"/>
+        </scene>
+        <!--论坛-->
         <scene sceneID="1lw-7c-tEn">
             <objects>
                 <navigationController id="BMh-mG-1Zc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Uj0-bc-ciV"/>
+                    <tabBarItem key="tabBarItem" title="论坛" image="froumCon" id="Uj0-bc-ciV"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="T4M-uf-IRc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -24,7 +60,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fPG-n5-evS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-78" y="-508"/>
+            <point key="canvasLocation" x="-39" y="-510"/>
         </scene>
         <!--Item 2-->
         <scene sceneID="7ez-9v-kdf">
@@ -58,7 +94,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="klG-y6-OhE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="596" y="-509"/>
+            <point key="canvasLocation" x="596" y="-510"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="FIa-Pp-TcT">
+            <objects>
+                <viewController id="rCV-d3-gCp" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hoH-Kq-T2F"/>
+                        <viewControllerLayoutGuide type="bottom" id="mwY-lW-Ybb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DPz-DB-eRa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rKO-F2-Og1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1326" y="-510"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="DX4-Dg-JnG">
@@ -71,6 +125,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="BMh-mG-1Zc" kind="relationship" relationship="viewControllers" id="NfU-bb-GXB"/>
+                        <segue destination="tYk-FI-nt5" kind="relationship" relationship="viewControllers" id="XD5-8A-iWh"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qJS-V2-V9P" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -78,4 +133,7 @@
             <point key="canvasLocation" x="-738" y="-508"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="froumCon" width="24" height="24"/>
+    </resources>
 </document>

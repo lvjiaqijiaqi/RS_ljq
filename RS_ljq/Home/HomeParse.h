@@ -7,7 +7,12 @@
 //
 
 #import "RSparse.h"
+@class ProfileModel;
 
 @interface HomeParse : RSparse
+
+@property(nonatomic,strong) ProfileModel *pModel;
+
+-(void)HTMLParseContentOfProfile:(NSString *)content;
 
 @end

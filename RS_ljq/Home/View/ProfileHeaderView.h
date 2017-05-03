@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface ProfileHeaderView : UIView
+@property (strong, nonatomic) IBOutlet UIImageView *headerImg;
+@property (strong, nonatomic) IBOutlet UILabel *nameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *groupLabel;
+@property (strong, nonatomic) IBOutlet UITextView *signatureLabel;
 
 @end

@@ -13,16 +13,13 @@
 		AB0A66891EAE32AE0097AE8E /* RSparse.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0A66881EAE32AE0097AE8E /* RSparse.m */; };
 		AB0D52DC1EAFC21800F924F6 /* CellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB0D52DB1EAFC21800F924F6 /* CellView.xib */; };
 		AB0D52DF1EAFC25A00F924F6 /* FloorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0D52DE1EAFC25A00F924F6 /* FloorTableViewCell.m */; };
-		AB0D52E21EAFCD2300F924F6 /* NSObject+ModeHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0D52E11EAFCD2300F924F6 /* NSObject+ModeHeight.m */; };
 		AB0D52E51EAFD54C00F924F6 /* FloorTVRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0D52E41EAFD54C00F924F6 /* FloorTVRefreshHeader.m */; };
+		AB2CB3321EB8C58E006DF87F /* ReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2CB3311EB8C58E006DF87F /* ReplyViewController.m */; };
 		AB4706AE1EAD43C800C06FF1 /* CategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4706AD1EAD43C800C06FF1 /* CategoryView.m */; };
 		AB4706B11EAD43CE00C06FF1 /* CascadingMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4706B01EAD43CE00C06FF1 /* CascadingMenuView.m */; };
 		AB4706CB1EAD450300C06FF1 /* ImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4706C81EAD450300C06FF1 /* ImageTableViewCell.m */; };
 		AB4706CC1EAD450300C06FF1 /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4706CA1EAD450300C06FF1 /* PostTableViewCell.m */; };
-		AB4706D51EAD456600C06FF1 /* IndexImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4706CE1EAD456600C06FF1 /* IndexImageModel.m */; };
-		AB4706D61EAD456600C06FF1 /* IndexTopicRandingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4706D01EAD456600C06FF1 /* IndexTopicRandingModel.m */; };
 		AB4706D71EAD456600C06FF1 /* IndexUsrRankingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4706D21EAD456600C06FF1 /* IndexUsrRankingModel.m */; };
-		AB4706D81EAD456600C06FF1 /* IndexZoneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4706D41EAD456600C06FF1 /* IndexZoneModel.m */; };
 		AB4706DD1EAD45AB00C06FF1 /* IndexTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4706DA1EAD45AB00C06FF1 /* IndexTableViewDelegate.m */; };
 		AB4706DE1EAD45AB00C06FF1 /* IndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4706DC1EAD45AB00C06FF1 /* IndexViewController.m */; };
 		AB4706E11EAD45EC00C06FF1 /* CascadingMenuViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4706E01EAD45EC00C06FF1 /* CascadingMenuViewDelegate.m */; };
@@ -40,6 +37,10 @@
 		AB4707061EAD540700C06FF1 /* HeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB4707051EAD540700C06FF1 /* HeadView.xib */; };
 		AB54FD641EAE00A5006ABF78 /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = AB54FD631EAE00A5006ABF78 /* UINavigationBar+Awesome.m */; };
 		AB54FD681EAE1E50006ABF78 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB54FD671EAE1E50006ABF78 /* PostViewController.m */; };
+		AB59638E1EB82B930068A531 /* TopicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB59638D1EB82B930068A531 /* TopicModel.m */; };
+		AB5963911EB82DA10068A531 /* ForumTopicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5963901EB82DA10068A531 /* ForumTopicModel.m */; };
+		AB5963941EB839E40068A531 /* CornerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5963931EB839E40068A531 /* CornerModel.m */; };
+		AB5963971EB83FD30068A531 /* CornerDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5963961EB83FD30068A531 /* CornerDetailModel.m */; };
 		AB6558501EAD2F450098EDEE /* libiconv.2.4.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AB65584F1EAD2F450098EDEE /* libiconv.2.4.0.tbd */; };
 		AB6558521EAD2F7D0098EDEE /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AB6558511EAD2F7D0098EDEE /* libiconv.tbd */; };
 		AB7C25011EA78DFD001E666E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7C25001EA78DFD001E666E /* main.m */; };
@@ -57,11 +58,13 @@
 		AB7C25681EA7944E001E666E /* Briefuser.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7C255D1EA7944E001E666E /* Briefuser.m */; };
 		AB7C25691EA7944E001E666E /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7C255F1EA7944E001E666E /* Comment.m */; };
 		AB7C256A1EA7944E001E666E /* Floor.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7C25611EA7944E001E666E /* Floor.m */; };
-		AB7C256B1EA7944E001E666E /* Index.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7C25631EA7944E001E666E /* Index.m */; };
-		AB7C256C1EA7944E001E666E /* Part.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7C25651EA7944E001E666E /* Part.m */; };
-		AB7C256D1EA7944E001E666E /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7C25671EA7944E001E666E /* Post.m */; };
 		AB7C25741EA7AC41001E666E /* ZoneParse.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7C25731EA7AC41001E666E /* ZoneParse.m */; };
 		ABAB31B31EAE3E4F009590C8 /* MJDIYHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAB31B21EAE3E4F009590C8 /* MJDIYHeader.m */; };
+		ABDEC9551EB987C200FA0B6C /* HomeParse.m in Sources */ = {isa = PBXBuildFile; fileRef = ABDEC9541EB987C200FA0B6C /* HomeParse.m */; };
+		ABDEC9581EB991C300FA0B6C /* ProfileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABDEC9571EB991C300FA0B6C /* ProfileModel.m */; };
+		ABDEC95C1EB9A81D00FA0B6C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABDEC95B1EB9A81D00FA0B6C /* HomeViewController.m */; };
+		ABDEC95F1EB9CA5E00FA0B6C /* profileHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABDEC95E1EB9CA5E00FA0B6C /* profileHeader.xib */; };
+		ABDEC9621EB9DAA300FA0B6C /* ProfileHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABDEC9611EB9DAA300FA0B6C /* ProfileHeaderView.m */; };
 		ABF382551EB0696E003545CA /* PostHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF382541EB0696E003545CA /* PostHeaderView.xib */; };
 		ABF382591EB069B4003545CA /* PostHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF382581EB069B4003545CA /* PostHeaderView.m */; };
 		ABF3825E1EB09937003545CA /* RS_attributeStringFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF3825D1EB09937003545CA /* RS_attributeStringFactory.m */; };
@@ -97,14 +100,13 @@
 		7B410AE316360B7B00C87B8E /* Pods-RS_ljqUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RS_ljqUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RS_ljqUITests/Pods-RS_ljqUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB0A66871EAE32AE0097AE8E /* RSparse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSparse.h; sourceTree = "<group>"; };
 		AB0A66881EAE32AE0097AE8E /* RSparse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSparse.m; sourceTree = "<group>"; };
-		AB0A668A1EAE38E10097AE8E /* DataNameSpace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataNameSpace.h; sourceTree = "<group>"; };
 		AB0D52DB1EAFC21800F924F6 /* CellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CellView.xib; path = RS_ljq/Post/view/CellView.xib; sourceTree = SOURCE_ROOT; };
 		AB0D52DD1EAFC25A00F924F6 /* FloorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FloorTableViewCell.h; path = RS_ljq/Post/view/FloorTableViewCell.h; sourceTree = SOURCE_ROOT; };
 		AB0D52DE1EAFC25A00F924F6 /* FloorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FloorTableViewCell.m; path = RS_ljq/Post/view/FloorTableViewCell.m; sourceTree = SOURCE_ROOT; };
-		AB0D52E01EAFCD2300F924F6 /* NSObject+ModeHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ModeHeight.h"; sourceTree = "<group>"; };
-		AB0D52E11EAFCD2300F924F6 /* NSObject+ModeHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ModeHeight.m"; sourceTree = "<group>"; };
 		AB0D52E31EAFD54C00F924F6 /* FloorTVRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FloorTVRefreshHeader.h; path = RS_ljq/Post/view/FloorTVRefreshHeader.h; sourceTree = SOURCE_ROOT; };
 		AB0D52E41EAFD54C00F924F6 /* FloorTVRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FloorTVRefreshHeader.m; path = RS_ljq/Post/view/FloorTVRefreshHeader.m; sourceTree = SOURCE_ROOT; };
+		AB2CB3301EB8C58E006DF87F /* ReplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReplyViewController.h; path = RS_ljq/Post/ReplyViewController.h; sourceTree = SOURCE_ROOT; };
+		AB2CB3311EB8C58E006DF87F /* ReplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReplyViewController.m; path = RS_ljq/Post/ReplyViewController.m; sourceTree = SOURCE_ROOT; };
 		AB4706AC1EAD43C800C06FF1 /* CategoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryView.h; path = RS_ljq/Index/View/CategoryView.h; sourceTree = "<group>"; };
 		AB4706AD1EAD43C800C06FF1 /* CategoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryView.m; path = RS_ljq/Index/View/CategoryView.m; sourceTree = "<group>"; };
 		AB4706AF1EAD43CE00C06FF1 /* CascadingMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CascadingMenuView.h; path = RS_ljq/Index/View/CascadingMenuView.h; sourceTree = "<group>"; };
@@ -113,14 +115,8 @@
 		AB4706C81EAD450300C06FF1 /* ImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageTableViewCell.m; path = RS_ljq/Index/View/ImageTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		AB4706C91EAD450300C06FF1 /* PostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostTableViewCell.h; path = RS_ljq/Index/View/PostTableViewCell.h; sourceTree = SOURCE_ROOT; };
 		AB4706CA1EAD450300C06FF1 /* PostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostTableViewCell.m; path = RS_ljq/Index/View/PostTableViewCell.m; sourceTree = SOURCE_ROOT; };
-		AB4706CD1EAD456600C06FF1 /* IndexImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IndexImageModel.h; path = RS_ljq/Index/Model/IndexImageModel.h; sourceTree = SOURCE_ROOT; };
-		AB4706CE1EAD456600C06FF1 /* IndexImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IndexImageModel.m; path = RS_ljq/Index/Model/IndexImageModel.m; sourceTree = SOURCE_ROOT; };
-		AB4706CF1EAD456600C06FF1 /* IndexTopicRandingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IndexTopicRandingModel.h; path = RS_ljq/Index/Model/IndexTopicRandingModel.h; sourceTree = SOURCE_ROOT; };
-		AB4706D01EAD456600C06FF1 /* IndexTopicRandingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IndexTopicRandingModel.m; path = RS_ljq/Index/Model/IndexTopicRandingModel.m; sourceTree = SOURCE_ROOT; };
 		AB4706D11EAD456600C06FF1 /* IndexUsrRankingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IndexUsrRankingModel.h; path = RS_ljq/Index/Model/IndexUsrRankingModel.h; sourceTree = SOURCE_ROOT; };
 		AB4706D21EAD456600C06FF1 /* IndexUsrRankingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IndexUsrRankingModel.m; path = RS_ljq/Index/Model/IndexUsrRankingModel.m; sourceTree = SOURCE_ROOT; };
-		AB4706D31EAD456600C06FF1 /* IndexZoneModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IndexZoneModel.h; path = RS_ljq/Index/Model/IndexZoneModel.h; sourceTree = SOURCE_ROOT; };
-		AB4706D41EAD456600C06FF1 /* IndexZoneModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IndexZoneModel.m; path = RS_ljq/Index/Model/IndexZoneModel.m; sourceTree = SOURCE_ROOT; };
 		AB4706D91EAD45AB00C06FF1 /* IndexTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IndexTableViewDelegate.h; path = RS_ljq/Index/IndexTableViewDelegate.h; sourceTree = SOURCE_ROOT; };
 		AB4706DA1EAD45AB00C06FF1 /* IndexTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IndexTableViewDelegate.m; path = RS_ljq/Index/IndexTableViewDelegate.m; sourceTree = SOURCE_ROOT; };
 		AB4706DB1EAD45AB00C06FF1 /* IndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IndexViewController.h; path = RS_ljq/Index/IndexViewController.h; sourceTree = SOURCE_ROOT; };
@@ -151,6 +147,14 @@
 		AB54FD631EAE00A5006ABF78 /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationBar+Awesome.m"; path = "RS_ljq/TOOLS/UINavigationBar+Awesome.m"; sourceTree = "<group>"; };
 		AB54FD661EAE1E50006ABF78 /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostViewController.h; path = RS_ljq/Post/PostViewController.h; sourceTree = SOURCE_ROOT; };
 		AB54FD671EAE1E50006ABF78 /* PostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostViewController.m; path = RS_ljq/Post/PostViewController.m; sourceTree = SOURCE_ROOT; };
+		AB59638C1EB82B930068A531 /* TopicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TopicModel.h; path = RS_ljq/Model/TopicModel.h; sourceTree = "<group>"; };
+		AB59638D1EB82B930068A531 /* TopicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicModel.m; path = RS_ljq/Model/TopicModel.m; sourceTree = "<group>"; };
+		AB59638F1EB82DA10068A531 /* ForumTopicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForumTopicModel.h; path = RS_ljq/Model/ForumTopicModel.h; sourceTree = "<group>"; };
+		AB5963901EB82DA10068A531 /* ForumTopicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForumTopicModel.m; path = RS_ljq/Model/ForumTopicModel.m; sourceTree = "<group>"; };
+		AB5963921EB839E40068A531 /* CornerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CornerModel.h; path = RS_ljq/Model/CornerModel.h; sourceTree = "<group>"; };
+		AB5963931EB839E40068A531 /* CornerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CornerModel.m; path = RS_ljq/Model/CornerModel.m; sourceTree = "<group>"; };
+		AB5963951EB83FD30068A531 /* CornerDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CornerDetailModel.h; path = RS_ljq/Model/CornerDetailModel.h; sourceTree = "<group>"; };
+		AB5963961EB83FD30068A531 /* CornerDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CornerDetailModel.m; path = RS_ljq/Model/CornerDetailModel.m; sourceTree = "<group>"; };
 		AB65584F1EAD2F450098EDEE /* libiconv.2.4.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.2.4.0.tbd; path = usr/lib/libiconv.2.4.0.tbd; sourceTree = SDKROOT; };
 		AB6558511EAD2F7D0098EDEE /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		AB7C24FC1EA78DFD001E666E /* RS_ljq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RS_ljq.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,20 +184,23 @@
 		AB7C25441EA79337001E666E /* ForumParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumParse.m; sourceTree = "<group>"; };
 		AB7C255C1EA7944E001E666E /* BriefUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BriefUser.h; path = RS_ljq/Model/BriefUser.h; sourceTree = "<group>"; };
 		AB7C255D1EA7944E001E666E /* Briefuser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Briefuser.m; path = RS_ljq/Model/Briefuser.m; sourceTree = "<group>"; };
-		AB7C255E1EA7944E001E666E /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Comment.h; path = RS_ljq/Model/Comment.h; sourceTree = "<group>"; };
-		AB7C255F1EA7944E001E666E /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Comment.m; path = RS_ljq/Model/Comment.m; sourceTree = "<group>"; };
-		AB7C25601EA7944E001E666E /* Floor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Floor.h; path = RS_ljq/Model/Floor.h; sourceTree = "<group>"; };
-		AB7C25611EA7944E001E666E /* Floor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Floor.m; path = RS_ljq/Model/Floor.m; sourceTree = "<group>"; };
-		AB7C25621EA7944E001E666E /* Index.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Index.h; path = RS_ljq/Model/Index.h; sourceTree = "<group>"; };
-		AB7C25631EA7944E001E666E /* Index.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Index.m; path = RS_ljq/Model/Index.m; sourceTree = "<group>"; };
-		AB7C25641EA7944E001E666E /* Part.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Part.h; path = RS_ljq/Model/Part.h; sourceTree = "<group>"; };
-		AB7C25651EA7944E001E666E /* Part.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Part.m; path = RS_ljq/Model/Part.m; sourceTree = "<group>"; };
-		AB7C25661EA7944E001E666E /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Post.h; path = RS_ljq/Model/Post.h; sourceTree = "<group>"; };
-		AB7C25671EA7944E001E666E /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Post.m; path = RS_ljq/Model/Post.m; sourceTree = "<group>"; };
+		AB7C255E1EA7944E001E666E /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Comment.h; path = ../Model/Comment.h; sourceTree = "<group>"; };
+		AB7C255F1EA7944E001E666E /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Comment.m; path = ../Model/Comment.m; sourceTree = "<group>"; };
+		AB7C25601EA7944E001E666E /* Floor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Floor.h; path = ../Model/Floor.h; sourceTree = "<group>"; };
+		AB7C25611EA7944E001E666E /* Floor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Floor.m; path = ../Model/Floor.m; sourceTree = "<group>"; };
 		AB7C25721EA7AC41001E666E /* ZoneParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoneParse.h; sourceTree = "<group>"; };
 		AB7C25731EA7AC41001E666E /* ZoneParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoneParse.m; sourceTree = "<group>"; };
 		ABAB31B11EAE3E4F009590C8 /* MJDIYHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJDIYHeader.h; path = RS_ljq/Forum/Views/MJDIYHeader.h; sourceTree = SOURCE_ROOT; };
 		ABAB31B21EAE3E4F009590C8 /* MJDIYHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJDIYHeader.m; path = RS_ljq/Forum/Views/MJDIYHeader.m; sourceTree = SOURCE_ROOT; };
+		ABDEC9531EB987C200FA0B6C /* HomeParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeParse.h; path = RS_ljq/Home/HomeParse.h; sourceTree = SOURCE_ROOT; };
+		ABDEC9541EB987C200FA0B6C /* HomeParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeParse.m; path = RS_ljq/Home/HomeParse.m; sourceTree = SOURCE_ROOT; };
+		ABDEC9561EB991C300FA0B6C /* ProfileModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileModel.h; path = RS_ljq/Model/ProfileModel.h; sourceTree = "<group>"; };
+		ABDEC9571EB991C300FA0B6C /* ProfileModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileModel.m; path = RS_ljq/Model/ProfileModel.m; sourceTree = "<group>"; };
+		ABDEC95A1EB9A81D00FA0B6C /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = RS_ljq/Home/HomeViewController.h; sourceTree = "<group>"; };
+		ABDEC95B1EB9A81D00FA0B6C /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = RS_ljq/Home/HomeViewController.m; sourceTree = "<group>"; };
+		ABDEC95E1EB9CA5E00FA0B6C /* profileHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = profileHeader.xib; path = RS_ljq/Home/View/profileHeader.xib; sourceTree = "<group>"; };
+		ABDEC9601EB9DAA300FA0B6C /* ProfileHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileHeaderView.h; path = RS_ljq/Home/View/ProfileHeaderView.h; sourceTree = "<group>"; };
+		ABDEC9611EB9DAA300FA0B6C /* ProfileHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileHeaderView.m; path = RS_ljq/Home/View/ProfileHeaderView.m; sourceTree = "<group>"; };
 		ABF382541EB0696E003545CA /* PostHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostHeaderView.xib; sourceTree = "<group>"; };
 		ABF382571EB069B4003545CA /* PostHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostHeaderView.h; path = RS_ljq/Post/view/PostHeaderView.h; sourceTree = SOURCE_ROOT; };
 		ABF382581EB069B4003545CA /* PostHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostHeaderView.m; path = RS_ljq/Post/view/PostHeaderView.m; sourceTree = SOURCE_ROOT; };
@@ -268,29 +275,27 @@
 		AB4706A71EAD421800C06FF1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				AB4706CD1EAD456600C06FF1 /* IndexImageModel.h */,
-				AB4706CE1EAD456600C06FF1 /* IndexImageModel.m */,
-				AB4706CF1EAD456600C06FF1 /* IndexTopicRandingModel.h */,
-				AB4706D01EAD456600C06FF1 /* IndexTopicRandingModel.m */,
 				AB4706D11EAD456600C06FF1 /* IndexUsrRankingModel.h */,
 				AB4706D21EAD456600C06FF1 /* IndexUsrRankingModel.m */,
-				AB4706D31EAD456600C06FF1 /* IndexZoneModel.h */,
-				AB4706D41EAD456600C06FF1 /* IndexZoneModel.m */,
+				AB7C255E1EA7944E001E666E /* Comment.h */,
+				AB7C255F1EA7944E001E666E /* Comment.m */,
+				AB7C25601EA7944E001E666E /* Floor.h */,
+				AB7C25611EA7944E001E666E /* Floor.m */,
 			);
 			name = Model;
+			path = RS_ljq/htmlHelp;
 			sourceTree = "<group>";
 		};
 		AB4706A81EAD425700C06FF1 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				ABF3825B1EB098D2003545CA /* RS_attributeSting */,
-				AB7C25321EA78E12001E666E /* PageParse */,
 				AB54FD621EAE00A5006ABF78 /* UINavigationBar+Awesome.h */,
 				AB54FD631EAE00A5006ABF78 /* UINavigationBar+Awesome.m */,
 				AB4706EF1EAD473600C06FF1 /* NSData+CleanData.h */,
 				AB4706F01EAD473600C06FF1 /* NSData+CleanData.m */,
 				AB4706F11EAD473600C06FF1 /* NSString+DataToString.h */,
 				AB4706F21EAD473600C06FF1 /* NSString+DataToString.m */,
+				ABF3825B1EB098D2003545CA /* RS_attributeSting */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -316,6 +321,8 @@
 				AB0D52DA1EAFC0F400F924F6 /* Views */,
 				AB54FD661EAE1E50006ABF78 /* PostViewController.h */,
 				AB54FD671EAE1E50006ABF78 /* PostViewController.m */,
+				AB2CB3301EB8C58E006DF87F /* ReplyViewController.h */,
+				AB2CB3311EB8C58E006DF87F /* ReplyViewController.m */,
 			);
 			name = Post;
 			path = RS_ljq/htmlHelp;
@@ -335,6 +342,7 @@
 		AB7C24F31EA78DFD001E666E = {
 			isa = PBXGroup;
 			children = (
+				AB7C25321EA78E12001E666E /* PageParse */,
 				AB4706A81EAD425700C06FF1 /* Tools */,
 				ABF888311EA8DFE900EF1B34 /* NetWorking */,
 				AB7C25461EA793A6001E666E /* Model */,
@@ -401,12 +409,11 @@
 		AB7C25321EA78E12001E666E /* PageParse */ = {
 			isa = PBXGroup;
 			children = (
-				AB0A668A1EAE38E10097AE8E /* DataNameSpace.h */,
-				AB7C25391EA78E45001E666E /* HTMLPageParse */,
 				AB7C25331EA78E12001E666E /* HTMLNode.h */,
 				AB7C25341EA78E12001E666E /* HTMLNode.m */,
 				AB7C25351EA78E12001E666E /* HTMLParser.h */,
 				AB7C25361EA78E12001E666E /* HTMLParser.m */,
+				AB7C25391EA78E45001E666E /* HTMLPageParse */,
 			);
 			name = PageParse;
 			path = RS_ljq/htmlHelp;
@@ -426,6 +433,8 @@
 				AB7C25731EA7AC41001E666E /* ZoneParse.m */,
 				AB0A66871EAE32AE0097AE8E /* RSparse.h */,
 				AB0A66881EAE32AE0097AE8E /* RSparse.m */,
+				ABDEC9531EB987C200FA0B6C /* HomeParse.h */,
+				ABDEC9541EB987C200FA0B6C /* HomeParse.m */,
 			);
 			name = HTMLPageParse;
 			sourceTree = "<group>";
@@ -447,20 +456,19 @@
 		AB7C25461EA793A6001E666E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				AB0D52E01EAFCD2300F924F6 /* NSObject+ModeHeight.h */,
-				AB0D52E11EAFCD2300F924F6 /* NSObject+ModeHeight.m */,
+				AB59638C1EB82B930068A531 /* TopicModel.h */,
+				AB59638D1EB82B930068A531 /* TopicModel.m */,
+				AB59638F1EB82DA10068A531 /* ForumTopicModel.h */,
+				AB5963901EB82DA10068A531 /* ForumTopicModel.m */,
+				AB5963921EB839E40068A531 /* CornerModel.h */,
+				AB5963931EB839E40068A531 /* CornerModel.m */,
+				AB5963951EB83FD30068A531 /* CornerDetailModel.h */,
+				AB5963961EB83FD30068A531 /* CornerDetailModel.m */,
 				AB7C255C1EA7944E001E666E /* BriefUser.h */,
 				AB7C255D1EA7944E001E666E /* Briefuser.m */,
-				AB7C255E1EA7944E001E666E /* Comment.h */,
-				AB7C255F1EA7944E001E666E /* Comment.m */,
-				AB7C25601EA7944E001E666E /* Floor.h */,
-				AB7C25611EA7944E001E666E /* Floor.m */,
-				AB7C25621EA7944E001E666E /* Index.h */,
-				AB7C25631EA7944E001E666E /* Index.m */,
-				AB7C25641EA7944E001E666E /* Part.h */,
-				AB7C25651EA7944E001E666E /* Part.m */,
-				AB7C25661EA7944E001E666E /* Post.h */,
-				AB7C25671EA7944E001E666E /* Post.m */,
+				ABDEC9561EB991C300FA0B6C /* ProfileModel.h */,
+				ABDEC9571EB991C300FA0B6C /* ProfileModel.m */,
+				AB4706A71EAD421800C06FF1 /* Model */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -485,7 +493,6 @@
 				AB4706DF1EAD45EC00C06FF1 /* CascadingMenuViewDelegate.h */,
 				AB4706E01EAD45EC00C06FF1 /* CascadingMenuViewDelegate.m */,
 				AB932C8B1EAA14BF0010ECA8 /* nibs */,
-				AB4706A71EAD421800C06FF1 /* Model */,
 				AB4706A61EAD420900C06FF1 /* View */,
 			);
 			name = Index;
@@ -512,9 +519,30 @@
 			path = ../..;
 			sourceTree = "<group>";
 		};
+		ABDEC9591EB9A7FF00FA0B6C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				ABDEC95D1EB9CA4100FA0B6C /* View */,
+				ABDEC95A1EB9A81D00FA0B6C /* HomeViewController.h */,
+				ABDEC95B1EB9A81D00FA0B6C /* HomeViewController.m */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		ABDEC95D1EB9CA4100FA0B6C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ABDEC95E1EB9CA5E00FA0B6C /* profileHeader.xib */,
+				ABDEC9601EB9DAA300FA0B6C /* ProfileHeaderView.h */,
+				ABDEC9611EB9DAA300FA0B6C /* ProfileHeaderView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		ABF3825A1EB070FF003545CA /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				ABDEC9591EB9A7FF00FA0B6C /* Home */,
 				AB932C871EAA07980010ECA8 /* Index */,
 				AB73A6301EACDE1A008E0691 /* Forum */,
 				AB54FD651EAE1DCE006ABF78 /* Post */,
@@ -685,6 +713,7 @@
 				ABF382551EB0696E003545CA /* PostHeaderView.xib in Resources */,
 				AB4706ED1EAD46BB00C06FF1 /* ImageCell.xib in Resources */,
 				AB4706EE1EAD46BB00C06FF1 /* PostCell.xib in Resources */,
+				ABDEC95F1EB9CA5E00FA0B6C /* profileHeader.xib in Resources */,
 				AB7C250A1EA78DFD001E666E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -848,14 +877,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB7C256D1EA7944E001E666E /* Post.m in Sources */,
 				AB7C25371EA78E12001E666E /* HTMLNode.m in Sources */,
 				AB7C25421EA79014001E666E /* IndexParse.m in Sources */,
 				AB0D52DF1EAFC25A00F924F6 /* FloorTableViewCell.m in Sources */,
 				AB4706E71EAD469300C06FF1 /* LoginWorking.m in Sources */,
+				ABDEC9621EB9DAA300FA0B6C /* ProfileHeaderView.m in Sources */,
+				ABDEC9551EB987C200FA0B6C /* HomeParse.m in Sources */,
 				ABF3825E1EB09937003545CA /* RS_attributeStringFactory.m in Sources */,
 				AB4706EA1EAD46A000C06FF1 /* AppUser.m in Sources */,
-				AB7C256B1EA7944E001E666E /* Index.m in Sources */,
+				AB59638E1EB82B930068A531 /* TopicModel.m in Sources */,
 				AB7C25041EA78DFD001E666E /* AppDelegate.m in Sources */,
 				AB7C25011EA78DFD001E666E /* main.m in Sources */,
 				AB4707041EAD52CD00C06FF1 /* HeadView.m in Sources */,
@@ -863,23 +893,23 @@
 				ABF382591EB069B4003545CA /* PostHeaderView.m in Sources */,
 				AB4706F41EAD473600C06FF1 /* NSString+DataToString.m in Sources */,
 				AB4706DE1EAD45AB00C06FF1 /* IndexViewController.m in Sources */,
+				AB5963971EB83FD30068A531 /* CornerDetailModel.m in Sources */,
+				AB5963941EB839E40068A531 /* CornerModel.m in Sources */,
 				AB7C25741EA7AC41001E666E /* ZoneParse.m in Sources */,
 				AB7C25681EA7944E001E666E /* Briefuser.m in Sources */,
 				AB7C25381EA78E12001E666E /* HTMLParser.m in Sources */,
 				AB4706AE1EAD43C800C06FF1 /* CategoryView.m in Sources */,
 				ABF8883A1EA8EC6400EF1B34 /* LoginParse.m in Sources */,
 				AB0D52E51EAFD54C00F924F6 /* FloorTVRefreshHeader.m in Sources */,
+				ABDEC9581EB991C300FA0B6C /* ProfileModel.m in Sources */,
+				AB2CB3321EB8C58E006DF87F /* ReplyViewController.m in Sources */,
 				AB4706D71EAD456600C06FF1 /* IndexUsrRankingModel.m in Sources */,
-				AB4706D81EAD456600C06FF1 /* IndexZoneModel.m in Sources */,
 				AB4706FF1EAD4AA900C06FF1 /* ForumTableViewCell.m in Sources */,
-				AB7C256C1EA7944E001E666E /* Part.m in Sources */,
-				AB4706D51EAD456600C06FF1 /* IndexImageModel.m in Sources */,
 				AB4706CC1EAD450300C06FF1 /* PostTableViewCell.m in Sources */,
 				AB7C25691EA7944E001E666E /* Comment.m in Sources */,
-				AB0D52E21EAFCD2300F924F6 /* NSObject+ModeHeight.m in Sources */,
+				AB5963911EB82DA10068A531 /* ForumTopicModel.m in Sources */,
 				AB7C256A1EA7944E001E666E /* Floor.m in Sources */,
 				ABAB31B31EAE3E4F009590C8 /* MJDIYHeader.m in Sources */,
-				AB4706D61EAD456600C06FF1 /* IndexTopicRandingModel.m in Sources */,
 				AB4706F71EAD476700C06FF1 /* ForumViewController.m in Sources */,
 				AB4706B11EAD43CE00C06FF1 /* CascadingMenuView.m in Sources */,
 				AB4706DD1EAD45AB00C06FF1 /* IndexTableViewDelegate.m in Sources */,
@@ -887,6 +917,7 @@
 				AB54FD641EAE00A5006ABF78 /* UINavigationBar+Awesome.m in Sources */,
 				AB7C25451EA79337001E666E /* ForumParse.m in Sources */,
 				AB4706E11EAD45EC00C06FF1 /* CascadingMenuViewDelegate.m in Sources */,
+				ABDEC95C1EB9A81D00FA0B6C /* HomeViewController.m in Sources */,
 				AB0A66891EAE32AE0097AE8E /* RSparse.m in Sources */,
 				AB54FD681EAE1E50006ABF78 /* PostViewController.m in Sources */,
 				AB4706E41EAD468400C06FF1 /* RSAFHTTPSessionManager.m in Sources */,

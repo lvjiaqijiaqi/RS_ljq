@@ -16,13 +16,14 @@
 #import "NSString+DataToString.h"
 #import "UINavigationBar+Awesome.h"
 
-#import "Post.h"
+#import "ForumTopicModel.h"
 #import "Floor.h"
 #import "BriefUser.h"
 #import "MJRefreshBackNormalFooter.h"
 
 #import "FloorTableViewCell.h"
 #import "PostHeaderView.h"
+#import "ReplyViewController.h"
 
 @interface PostViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -30,7 +31,7 @@
 @property(nonatomic,strong) PostHeaderView *postHeaderView;
 
 @property(nonatomic,strong) NSMutableArray<Floor *> *floors;
-@property(nonatomic,strong) Post *post;
+@property(nonatomic,strong) ForumTopicModel *topic;
 
 //
 @property(nonatomic,assign) NSInteger currentPage; //
@@ -40,11 +41,11 @@
 
 @implementation PostViewController
 
-- (instancetype)initWithPostModel:(Post*)model
+- (instancetype)initWithPostModel:(ForumTopicModel*)model
 {
     self = [super init];
     if (self) {
-        _post = model;
+        _topic = model;
         _floors = [NSMutableArray array];
     }
     return self;
@@ -59,13 +60,13 @@
         //titleLabel计算高度
         NSDictionary *dictAttr = [RS_attributeStringFactory PostHeaderLabelAttribute];
         NSStringDrawingOptions options = NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading;
-        CGFloat height = [self.post.name boundingRectWithSize:CGSizeMake(self.view.frame.size.width-10, MAXFLOAT) options:options attributes:dictAttr context:nil].size.height;
+        CGFloat height = [self.topic.t_Name boundingRectWithSize:CGSizeMake(self.view.frame.size.width-10, MAXFLOAT) options:options attributes:dictAttr context:nil].size.height;
         height = ceil(height+91);
         
         //初始化帖子信息
-        postHeaderView.titleLabel.attributedText =  [[NSAttributedString alloc] initWithString:[@"" clearRN:self.post.name]  attributes:dictAttr];
-        postHeaderView.sacnLabel.text = self.post.scan;
-        postHeaderView.replyLabel.text = self.post.reply;
+        postHeaderView.titleLabel.attributedText =  [[NSAttributedString alloc] initWithString:[@"" clearRN:self.topic.t_Name]  attributes:dictAttr];
+        postHeaderView.sacnLabel.text = self.topic.t_scanNum;
+        postHeaderView.replyLabel.text = self.topic.t_replyNum;
         postHeaderView.moneyLabel.text = @"";
         
         [postHeaderView setFrame:CGRectMake(0, -height, self.view.frame.size.width, height)];
@@ -104,7 +105,7 @@
     FloorTVRefreshHeader *header =  [[FloorTVRefreshHeader alloc] init];
     header.ignoredScrollViewContentInsetTop = _postTableView.contentInset.top;
     [header setRefreshingBlock:^{
-        [RsNetworking PostWithFid:self.post.pid Page:1 Authorid:0 Order:1 completionHandler:^(NSString *str) {
+        [RsNetworking PostWithFid:self.topic.t_Id Page:1 Authorid:0 Order:1 completionHandler:^(NSString *str) {
             ForumParse *forumParse =  [[ForumParse alloc] init] ;
             [forumParse HTMLParseContent:str];
             [weakSelf updateDataSource:forumParse appendData:NO];
@@ -116,12 +117,12 @@
     
     //上啦加载设置
     _postTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        NSInteger nextPage = 1 + weakSelf.currentPage > weakSelf.post.maxPage ? 0 : 1 + weakSelf.currentPage;
+        NSInteger nextPage = 1 + weakSelf.currentPage > weakSelf.topic.t_maxPage ? 0 : 1 + weakSelf.currentPage;
         if (nextPage < 1){
             [weakSelf.postTableView.mj_footer endRefreshing];
             return;
         }
-        [RsNetworking PostWithFid:self.post.pid Page:nextPage Authorid:0 Order:1 completionHandler:^(NSString *str) {
+        [RsNetworking PostWithFid:self.topic.t_Id Page:nextPage Authorid:0 Order:1 completionHandler:^(NSString *str) {
             ForumParse *forumParse =  [[ForumParse alloc] init] ;
             [forumParse HTMLParseContent:str];
             [weakSelf updateDataSource:forumParse appendData:YES];
@@ -129,13 +130,8 @@
             [weakSelf.postTableView.mj_footer endRefreshing];
         }];
     }];
-
-}
-
--(void)viewDidAppear:(BOOL)animated{
     [self.postTableView.mj_header beginRefreshing];
 }
-
 
 -(void)updateDataSource:(ForumParse*)forumParse appendData:(BOOL)isAppend{
     if (isAppend) {
@@ -144,7 +140,7 @@
             [self.floors removeAllObjects];
         }
     }
-    [self.post updateModel:forumParse.post];
+    //[self.topic updateModel:forumParse.post];
     @synchronized (self) {
         [self.floors addObjectsFromArray:forumParse.floors];
     }
@@ -181,7 +177,11 @@
 }
 
 #pragma  -mark- tableViewDelegate
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+        Floor *f = [self.floors objectAtIndex:indexPath.row];
+        ReplyViewController *replyViewController =  [[ReplyViewController alloc] init];
+        [self.navigationController pushViewController:replyViewController animated:YES];
+}
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     Floor *f = [self.floors objectAtIndex:indexPath.row];
     NSStringDrawingOptions options = NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading;

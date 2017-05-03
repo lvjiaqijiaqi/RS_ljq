@@ -8,21 +8,21 @@
 
 #import <Foundation/Foundation.h>
 
-@class IndexZoneModel;
-@class IndexImageModel;
+@class TopicModel;
 @class IndexUsrRankingModel;
-@class IndexTopicRandingModel;
+@class CornerModel;
 
 @interface IndexParse : NSObject
 
-@property(nonatomic,strong)  NSArray<IndexTopicRandingModel *> *topicLis_new;
-@property(nonatomic,strong)  NSArray<IndexTopicRandingModel *> *topicLis_newReply;
-@property(nonatomic,strong)  NSArray<IndexTopicRandingModel *> *topicLis_recommend;
-@property(nonatomic,strong)  NSArray<IndexTopicRandingModel *> *topicLis_weekHot;
-@property(nonatomic,strong)  NSArray<IndexTopicRandingModel *> *topicLis_dayHot;
-@property(nonatomic,strong)  NSArray<IndexImageModel *> *topicLis_imgHot;
+@property(nonatomic,strong)  NSArray<TopicModel *> *topicLis_new;
+@property(nonatomic,strong)  NSArray<TopicModel *> *topicLis_newReply;
+@property(nonatomic,strong)  NSArray<TopicModel *> *topicLis_recommend;
+@property(nonatomic,strong)  NSArray<TopicModel *> *topicLis_weekHot;
+@property(nonatomic,strong)  NSArray<TopicModel *> *topicLis_dayHot;
+@property(nonatomic,strong)  NSArray<TopicModel *> *topicLis_imgHot;
+
 @property(nonatomic,strong)  NSArray<IndexUsrRankingModel *> *userRankings;
-@property(nonatomic,strong)  NSDictionary<NSString *,NSArray<IndexZoneModel*> *> *zoneLists;
+@property(nonatomic,strong)  NSDictionary<NSString *,NSArray<CornerModel*> *> *zoneLists;
 
 -(void)HTMLParseContent:(NSString *)content;
 

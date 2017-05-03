@@ -9,13 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "RSparse.h"
 
-@class Part;
-@class Post;
+@class CornerDetailModel;
+@class ForumTopicModel;
 
 @interface ZoneParse : RSparse
 
-@property(nonatomic,strong) Part *headPart;
-@property(nonatomic,strong) NSArray<Post *> *PostList;
+@property(nonatomic,strong) CornerDetailModel *corner;
+@property(nonatomic,strong) NSArray<ForumTopicModel *> *topicList;
 
 -(void)HTMLParseContent:(NSString *)content;
 

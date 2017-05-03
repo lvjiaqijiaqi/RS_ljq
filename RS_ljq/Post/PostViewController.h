@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-@class Post;
+@class ForumTopicModel;
 
 @interface PostViewController : UIViewController
 
-- (instancetype)initWithPostModel:(Post*)model;
+- (instancetype)initWithPostModel:(ForumTopicModel*)model;
 
 @end

@@ -10,11 +10,11 @@
 #import "RSparse.h"
 
 @class Floor;
-@class Post;
+@class ForumTopicModel;
 @interface ForumParse : RSparse
 
 @property(strong,nonatomic) NSArray<Floor *>* floors;
-@property(strong,nonatomic) Post *post;
+@property(strong,nonatomic) ForumTopicModel *topic;
 
 -(void)HTMLParseContent:(NSString *)content;
 @end
