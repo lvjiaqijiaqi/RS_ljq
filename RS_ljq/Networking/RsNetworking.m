@@ -24,6 +24,13 @@
     NSURL *URL = [NSURL URLWithString:PC_forum];
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
     
+    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    NSArray<NSHTTPCookie *> *cookies = [storage cookiesForURL:URL];
+    [cookies enumerateObjectsUsingBlock:^(  NSHTTPCookie * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSLog(@"%@:%@",obj.name,obj.value);
+    }];
+
+    
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error) {
             NSLog(@"Error: %@", error);

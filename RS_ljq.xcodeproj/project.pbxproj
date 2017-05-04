@@ -35,6 +35,7 @@
 		AB4706FF1EAD4AA900C06FF1 /* ForumTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4706FE1EAD4AA900C06FF1 /* ForumTableViewCell.m */; };
 		AB4707041EAD52CD00C06FF1 /* HeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4707031EAD52CD00C06FF1 /* HeadView.m */; };
 		AB4707061EAD540700C06FF1 /* HeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB4707051EAD540700C06FF1 /* HeadView.xib */; };
+		AB5091BD1EBACE7A0041C476 /* LoginInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5091BC1EBACE7A0041C476 /* LoginInViewController.m */; };
 		AB54FD641EAE00A5006ABF78 /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = AB54FD631EAE00A5006ABF78 /* UINavigationBar+Awesome.m */; };
 		AB54FD681EAE1E50006ABF78 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB54FD671EAE1E50006ABF78 /* PostViewController.m */; };
 		AB59638E1EB82B930068A531 /* TopicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AB59638D1EB82B930068A531 /* TopicModel.m */; };
@@ -143,6 +144,8 @@
 		AB4707021EAD52CD00C06FF1 /* HeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HeadView.h; path = RS_ljq/Forum/Views/HeadView.h; sourceTree = SOURCE_ROOT; };
 		AB4707031EAD52CD00C06FF1 /* HeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HeadView.m; path = RS_ljq/Forum/Views/HeadView.m; sourceTree = SOURCE_ROOT; };
 		AB4707051EAD540700C06FF1 /* HeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HeadView.xib; path = RS_ljq/Forum/Views/HeadView.xib; sourceTree = SOURCE_ROOT; };
+		AB5091BB1EBACE7A0041C476 /* LoginInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginInViewController.h; path = RS_ljq/Home/LoginInViewController.h; sourceTree = "<group>"; };
+		AB5091BC1EBACE7A0041C476 /* LoginInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginInViewController.m; path = RS_ljq/Home/LoginInViewController.m; sourceTree = "<group>"; };
 		AB54FD621EAE00A5006ABF78 /* UINavigationBar+Awesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINavigationBar+Awesome.h"; path = "RS_ljq/TOOLS/UINavigationBar+Awesome.h"; sourceTree = "<group>"; };
 		AB54FD631EAE00A5006ABF78 /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigationBar+Awesome.m"; path = "RS_ljq/TOOLS/UINavigationBar+Awesome.m"; sourceTree = "<group>"; };
 		AB54FD661EAE1E50006ABF78 /* PostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostViewController.h; path = RS_ljq/Post/PostViewController.h; sourceTree = SOURCE_ROOT; };
@@ -525,6 +528,8 @@
 				ABDEC95D1EB9CA4100FA0B6C /* View */,
 				ABDEC95A1EB9A81D00FA0B6C /* HomeViewController.h */,
 				ABDEC95B1EB9A81D00FA0B6C /* HomeViewController.m */,
+				AB5091BB1EBACE7A0041C476 /* LoginInViewController.h */,
+				AB5091BC1EBACE7A0041C476 /* LoginInViewController.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -892,6 +897,7 @@
 				ABF888341EA8E07200EF1B34 /* RsNetworking.m in Sources */,
 				ABF382591EB069B4003545CA /* PostHeaderView.m in Sources */,
 				AB4706F41EAD473600C06FF1 /* NSString+DataToString.m in Sources */,
+				AB5091BD1EBACE7A0041C476 /* LoginInViewController.m in Sources */,
 				AB4706DE1EAD45AB00C06FF1 /* IndexViewController.m in Sources */,
 				AB5963971EB83FD30068A531 /* CornerDetailModel.m in Sources */,
 				AB5963941EB839E40068A531 /* CornerModel.m in Sources */,

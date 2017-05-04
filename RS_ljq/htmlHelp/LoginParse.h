@@ -11,6 +11,6 @@
 
 @interface LoginParse : NSObject
 
-+(NSString *_Nullable)HTMLParseContent:(NSString *_Nullable)content success:(nullable void (^)(NSArray *_Nullable))successBlock;
++(NSDictionary *)HTMLParseContent:(NSString *)content;
 
 @end

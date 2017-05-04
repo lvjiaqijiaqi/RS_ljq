@@ -13,8 +13,10 @@
 #import "HomeViewController.h"
 #import "RsNetworking.h"
 #import "HomeParse.h"
+#import "LoginInViewController.h"
 
 #import "ProfileModel.h"
+#import "AppUser.h"
 
 #import "ProfileHeaderView.h"
 
@@ -29,6 +31,9 @@
 @property(nonatomic,strong) NSArray<UILabel *> *staticsLabels;
 @property(nonatomic,strong) UIStackView *staticsView;
 
+@property (strong, nonatomic) IBOutlet UIView *unLoginView;
+@property (strong, nonatomic) IBOutlet UIButton *loginBtn;
+
 @property(nonatomic,strong) ProfileHeaderView *profileHeaderView;
 
 @property(nonatomic,strong) UITableView *profileTableView;
@@ -36,6 +41,11 @@
 @end
 
 @implementation HomeViewController
+
+
+- (IBAction)loginHandle:(id)sender {
+    [self clipToLoginPage];
+}
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return _profileColumns.count;
@@ -55,11 +65,31 @@
     cell.textLabel.text = [self.profileColumns objectAtIndex:indexPath.row];
     return cell;
 }
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    switch (indexPath.row) {
+        case 4:{
+            UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"确定要退出登陆" message:nil preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [[AppUser sharedInstance] clearLoginStatus];
+                [self clipToLoginPage];
+            }];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            }];
+                [alertC addAction:okAction];
+                [alertC addAction:cancelAction];
+                [self presentViewController:alertC animated:YES completion:nil];
+            }
+            break;
+            
+        default:
+            break;
+    }
+}
 
 -(UITableView *)profileTableView{
     if (_profileTableView == nil) {
-        _profileTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+        _profileTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.bounds.size.height-114)];
+        NSLog(@"%f",self.view.bounds.size.height);
         _profileTableView.delegate = self;
         _profileTableView.dataSource = self;
     }
@@ -109,13 +139,14 @@
     return _staticsView;
 }
 
-
 -(void)prePareVC{
+
     [self.navigationController.navigationBar setShadowImage:[UIImage new]];
     UIColor * color = [UIColor colorWithRed:0/255.0 green:175/255.0 blue:240/255.0 alpha:1];
     [self.navigationController.navigationBar lt_setBackgroundColor:[color colorWithAlphaComponent:1]];
-    self.navigationItem.title = @"个人中心";
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
 }
 -(void)prePareViews{
     [self.profileTableView addSubview:self.staticsView];
@@ -125,16 +156,17 @@
     [self.view addSubview:self.profileTableView];
 }
 
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     _profileColumns = [NSArray arrayWithObjects:@"个人信息",@"活跃概况",@"签到详情",@"统计信息",@"退出登录", nil];
     _staticsColumns = [NSArray arrayWithObjects:@"好友数",@"记录数",@"日志数",@"相册数",@"回帖数",@"主题数",@"分享数",@"", nil];
-
+    
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     [self prePareVC];
     [self prePareViews];
+    
+    self.profileTableView.hidden = YES;
     
     __weak typeof(self) weakSelf = self;
     FloorTVRefreshHeader *header =  [[FloorTVRefreshHeader alloc] init];
@@ -149,7 +181,18 @@
     }];
     self.profileTableView.mj_header = header;
     
-    [header beginRefreshing];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+
+    if (![[AppUser sharedInstance] loginStatus]) {
+        self.profileTableView.hidden = YES;
+        self.unLoginView.hidden = NO;
+    }else{
+        self.profileTableView.hidden = NO;
+        self.unLoginView.hidden = YES;
+        [self.profileTableView.mj_header beginRefreshing];
+    }
     
 }
 
@@ -215,9 +258,13 @@
 
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    //Dispose of any resources that can be recreated.
+
+-(void)clipToLoginPage{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    LoginInViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"LoginPage"];
+    [self.navigationController presentViewController:loginVC animated:YES completion:^{
+        
+    }];
 }
 
 

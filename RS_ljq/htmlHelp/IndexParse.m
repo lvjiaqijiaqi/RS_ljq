@@ -55,6 +55,8 @@
 
 -(void)HTMLParseContent:(NSString *)content{
   
+    //NSLog(@"%@",content);
+    
     NSError *error = nil;
     HTMLParser *parser = [[HTMLParser alloc] initWithString:content error:&error];
     HTMLNode *bodyNode = [parser body];

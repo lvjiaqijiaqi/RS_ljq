@@ -28,11 +28,15 @@
 
 @property(nonatomic,strong) NSUserDefaults *userDefaults;
 
--(void)saveLoginFromCookie:(NSArray<NSHTTPCookie *>*)cookies;
--(NSArray<NSHTTPCookie *> *)requireLoginToCookie;
+-(void)saveLoginStatus:(NSDictionary *)statusDic;
+-(NSDictionary *)requireLoginStatusdic;
+-(void)clearLoginStatus;
+
+-(BOOL)loginStatus;
+-(NSString *)userId;
+-(NSString *)userName;
 
 + (instancetype)sharedInstance;
--(BOOL)isLogIn;
--(void)logOut;
+
 
 @end

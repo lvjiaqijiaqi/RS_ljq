@@ -26,7 +26,10 @@
 @property(nonatomic,strong) NSString *Q8qA_2132_lastvisit;
 */
 
-
+/*{succeedhandle_ls
+    ('欢迎您回来，西电大三 lvjiaqijiaqi，现在将转入登录前页面',
+    {'username':'lvjiaqijiaqi','usergroup':'西电大三','uid':'76373','groupid':'22','syn':'1'});
+*/
 
 @implementation AppUser
 
@@ -58,45 +61,29 @@ static AppUser *_instance;
 }
 
 
--(BOOL)isLogIn{
-    return [[_userDefaults objectForKey:@"loginUser"] boolValue];
+-(BOOL)loginStatus{
+    
+    return [_userDefaults objectForKey:@"userInfo"]?YES:NO;
 }
--(void)logOut{
-    [_userDefaults setBool:NO forKey:@"loginUser"];
+-(NSString *)userName{
+    return [self loginStatus]?[[_userDefaults objectForKey:@"userInfo"] objectForKey:@"username"]:@"";
+}
+-(NSString *)userId{
+    return [self loginStatus]?[[_userDefaults objectForKey:@"userInfo"] objectForKey:@"uid"]:@"";
+}
+
+
+-(void)saveLoginStatus:(NSDictionary *)statusDic{
+    
+    [_userDefaults setObject:statusDic forKey:@"userInfo"];
+    [_userDefaults synchronize];
+}
+-(NSDictionary *)requireLoginStatusdic{
+    return [_userDefaults objectForKey:@"userInfo"];
+}
+-(void)clearLoginStatus{
     [_userDefaults removeObjectForKey:@"userInfo"];
     [_userDefaults synchronize];
 }
-
--(void)saveLoginFromCookie:(NSArray<NSHTTPCookie *>*)cookies{
-    NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithCapacity:10];
-    [cookies enumerateObjectsUsingBlock:^(NSHTTPCookie*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-         [userInfo setValue:obj.value forKey:obj.name];
-    }];
-    [_userDefaults setBool:YES forKey:@"loginUser"];
-    [_userDefaults setObject:userInfo forKey:@"userInfo"];
-    [_userDefaults synchronize];
-}
-
-
-
--(NSArray<NSHTTPCookie *> *)requireLoginToCookie{
-    NSMutableDictionary *cookiesArr = [_userDefaults objectForKey:@"userInfo"];
-    NSMutableArray *cookies = [NSMutableArray array];
-    if (cookiesArr) {
-        [cookiesArr enumerateKeysAndObjectsUsingBlock:^(NSString*  _Nonnull key, NSString*  _Nonnull obj, BOOL * _Nonnull stop){
-            NSMutableDictionary *cookieProperties = [NSMutableDictionary dictionary];  // 创建cookie属性字典
-            [cookieProperties setObject:key forKey:NSHTTPCookieName]; // 手动设置cookie的属性
-            [cookieProperties setObject:obj forKey:NSHTTPCookieValue];
-            [cookieProperties setObject:@"rs.xidian.edu.cn" forKey:NSHTTPCookieDomain];
-            [cookieProperties setObject:@"rs.xidian.edu.cn" forKey:NSHTTPCookieOriginURL];
-            [cookieProperties setObject:@"/" forKey:NSHTTPCookiePath];
-            [cookieProperties setObject:@"0" forKey:NSHTTPCookieVersion];
-            NSHTTPCookie *cookie = [NSHTTPCookie cookieWithProperties:cookieProperties];
-            [cookies addObject:cookie];
-        }];
-    }
-    return cookies;
-}
-
 
 @end

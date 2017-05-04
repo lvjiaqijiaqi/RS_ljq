@@ -19,6 +19,7 @@
     // Override point for customization after application launch.
     
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    [[UITabBar appearance] setBackgroundColor:[UIColor whiteColor]];
     
     return YES;
 }

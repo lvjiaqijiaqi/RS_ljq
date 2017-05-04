@@ -10,6 +10,6 @@
 
 @interface LoginWorking : NSObject
 
-+ (instancetype)sharedInstance;
--(void)loginInRs:(NSString*)userName and:(NSString*)password success:(nullable void (^)())successBlock failure:(nullable void (^)())failureBlock;
++ (instancetype _Nullable )sharedInstance;
+-(void)loginInRs:(NSString*_Nullable)userName and:(NSString*_Nullable)password success:(nullable void (^)(NSString * _Nullable msg))successBlock failure:(nullable void (^)(NSString * _Nullable msg))failureBlock;
 @end
