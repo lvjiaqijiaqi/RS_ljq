@@ -13,5 +13,7 @@
 -(NSString *)stringFromData:(NSData *)data encoding:(NSStringEncoding)encoding;
 -(NSString *)clearRN:(NSString *)originStr;
 -(NSInteger)requireFristInt;
++(NSString *)clearRN:(NSString *)originStr;
++(NSString *)clearMultipleRNS:(NSString *)originStr;
 
 @end

@@ -12,4 +12,15 @@
 
 +(NSDictionary *)PostHeaderLabelAttribute;
 +(NSDictionary *)FloorLabelAttribute;
++(NSDictionary *)pstatusAttribute;
++(NSDictionary *)quoteAttribute;
++(NSDictionary *)bodyAttribute;
+
++(NSDictionary *)postQuoteAttribute;
++(NSDictionary *)postPstatusAttribute;
++(NSDictionary *)postBodyAttribute;
+
++(NSDictionary *)postCommentUnameAttribute;
++(NSDictionary *)postCommentPublicTimeAttribute;
++(NSDictionary *)postCommentBodyAttribute;
 @end

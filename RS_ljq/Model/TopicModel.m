@@ -19,6 +19,7 @@
         self.t_Name = @"";
         self.t_Addition = @"";
         self.t_userName = @"";
+         
     }
     return self;
 }

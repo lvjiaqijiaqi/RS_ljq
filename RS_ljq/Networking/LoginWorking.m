@@ -93,7 +93,7 @@ static LoginWorking *_instance;
     par[@"quickforward"] = @"yes";
     par[@"handlekey"] = @"ls";
     
-    AFHTTPSessionManager *manager = [RSAFHTTPSessionManager manager];
+    AFHTTPSessionManager *manager = [RSAFHTTPSessionManager sharedHTTPSession];
     
     [self clearLoginStatus];
     
@@ -115,7 +115,7 @@ static LoginWorking *_instance;
 
 -(void)loginInRsAfter:(NSDictionary*)loginDic success:(nullable void (^)(NSString *msg))successBlock failure:(nullable void (^)(NSString *msg))failureBlock {
     
-    AFHTTPSessionManager *manager = [RSAFHTTPSessionManager manager];
+    AFHTTPSessionManager *manager = [RSAFHTTPSessionManager sharedHTTPSession];
     [manager GET:[loginDic objectForKey:@"reLocationAddress"] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [self storeStatus:loginDic];
         successBlock([NSString stringWithFormat:@"%@  %@",[loginDic objectForKey:@"username"],[loginDic objectForKey:@"usergroup"]]);

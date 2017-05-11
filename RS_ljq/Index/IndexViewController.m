@@ -19,6 +19,7 @@
 //model
 #import "CornerModel.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "ForumTopicModel.h"
 
 #import "CascadingMenuView.h"
 #import "CascadingMenuViewDelegate.h"
@@ -61,6 +62,11 @@
     [self.view addSubview:self.indexTableView];
     __weak typeof(self) weakSelf = self;
     [self.indexTableViewDelegate setSelectHandle:^(NSInteger tid ,NSString *str) { //跳转
+        ForumTopicModel *model =  [[ForumTopicModel  alloc] init];
+        model.t_Name = str;
+        model.t_Id = tid;
+        PostViewController *posVC = [[PostViewController alloc] initWithPostModel:model];
+        [weakSelf.navigationController pushViewController:posVC animated:YES];
     }];
     
     //categoryView

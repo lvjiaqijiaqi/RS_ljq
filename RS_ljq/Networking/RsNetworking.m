@@ -19,7 +19,7 @@
 
 +(void)indexWithcompletionHandler:(void (^)(NSString *))completionHandler{
     
-    AFURLSessionManager *manager = [RSAFHTTPSessionManager manager];
+    AFHTTPSessionManager *manager = [RSAFHTTPSessionManager sharedHTTPSession];
     
     NSURL *URL = [NSURL URLWithString:PC_forum];
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
@@ -43,7 +43,7 @@
 }
 
 +(void)homeWithcompletionHandler:(void (^)())completionHandler{
-    AFURLSessionManager *manager = [RSAFHTTPSessionManager manager];
+    AFHTTPSessionManager *manager = [RSAFHTTPSessionManager sharedHTTPSession];
     NSURL *URL = [NSURL URLWithString:PC_home];
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
     NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
@@ -77,7 +77,7 @@
         default:
             break;
     }
-    RSAFHTTPSessionManager *manager = [RSAFHTTPSessionManager manager];
+    AFHTTPSessionManager *manager = [RSAFHTTPSessionManager sharedHTTPSession];
     NSURL *URL = [NSURL URLWithString:url];
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
     
@@ -105,10 +105,12 @@
     [self PostWithFid:fid Page:page Authorid:authorid Order:1 completionHandler:completionHandler];
 }
 +(void)PostWithFid:(NSInteger)fid Page:(NSInteger)page Authorid:(NSInteger)authorid Order:(NSInteger)order completionHandler:(void (^)(NSString *str))completionHandler{
+    
     NSString *url = @"http://rs.xidian.edu.cn/forum.php?mod=viewthread&tid=%d&page=%d&authorid=%d&ordertype=%d";
     url = [NSString stringWithFormat:url,fid,page,authorid,order];
     //NSLog(@"%@",url);
-    RSAFHTTPSessionManager *manager = [RSAFHTTPSessionManager manager];
+    
+    AFHTTPSessionManager *manager = [RSAFHTTPSessionManager sharedHTTPSession];
     NSURL *URL = [NSURL URLWithString:url];
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
     
@@ -128,7 +130,7 @@
 +(void)homePage:(NSInteger)uid andType:(NSString *)type completionHandler:(void (^)(NSString *str))completionHandler{
     NSString *url = @"http://rs.xidian.edu.cn/home.php?mod=space&uid=%d&do=%@";
     url = [NSString stringWithFormat:url,uid,type];
-    RSAFHTTPSessionManager *manager = [RSAFHTTPSessionManager manager];
+    AFHTTPSessionManager *manager = [RSAFHTTPSessionManager sharedHTTPSession];
     NSURL *URL = [NSURL URLWithString:url];
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
     

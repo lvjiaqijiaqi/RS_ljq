@@ -20,6 +20,7 @@
         _uid = @"";
         _username = @"";
         _cid = @"";
+        _headImg = @"";
     }
     return self;
     

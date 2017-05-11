@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="589" id="U4r-Zi-esS" customClass="PostImgTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="945" height="432"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U4r-Zi-esS" id="a21-E1-c5B">
+                <rect key="frame" x="0.0" y="0.0" width="945" height="432"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N3K-EH-BEl">
+                        <rect key="frame" x="8" y="13" width="929" height="405.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="405.5" id="5aD-0F-uxe"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="N3K-EH-BEl" firstAttribute="top" secondItem="a21-E1-c5B" secondAttribute="topMargin" constant="5" id="Jcl-ce-4LF"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="N3K-EH-BEl" secondAttribute="trailing" id="RA5-Xy-BvA"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="N3K-EH-BEl" secondAttribute="bottom" constant="5" id="bt1-QD-NjD"/>
+                    <constraint firstItem="N3K-EH-BEl" firstAttribute="leading" secondItem="a21-E1-c5B" secondAttribute="leadingMargin" id="tHt-tf-2jK"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="heightCon" destination="5aD-0F-uxe" id="Hbv-SJ-tcp"/>
+                <outlet property="imgView" destination="N3K-EH-BEl" id="uG8-Xt-bgP"/>
+            </connections>
+            <point key="canvasLocation" x="62" y="-609"/>
+        </tableViewCell>
+    </objects>
+</document>

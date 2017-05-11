@@ -10,4 +10,6 @@
 
 @interface RSAFHTTPSessionManager : AFHTTPSessionManager
 
++(AFHTTPSessionManager *)sharedHTTPSession ;
+
 @end

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="323" id="QOq-A7-tBc" customClass="PostBodyTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="574" height="323"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QOq-A7-tBc" id="smC-cw-GbZ">
+                <rect key="frame" x="0.0" y="0.0" width="574" height="323"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iMY-kP-nCp">
+                        <rect key="frame" x="13" y="13" width="548" height="296.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="textColor" white="0.14999999999999999" alpha="1" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                </subviews>
+                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="iMY-kP-nCp" firstAttribute="top" secondItem="smC-cw-GbZ" secondAttribute="topMargin" constant="5" id="hQF-s6-DEQ"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="iMY-kP-nCp" secondAttribute="bottom" constant="5" id="mNd-xT-PyB"/>
+                    <constraint firstItem="iMY-kP-nCp" firstAttribute="leading" secondItem="smC-cw-GbZ" secondAttribute="leadingMargin" constant="5" id="oiW-JT-05f"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="iMY-kP-nCp" secondAttribute="trailing" constant="5" id="sLp-rF-tCT"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="bodyTextView" destination="iMY-kP-nCp" id="ipj-oc-6Aq"/>
+            </connections>
+            <point key="canvasLocation" x="-210" y="20"/>
+        </tableViewCell>
+    </objects>
+</document>

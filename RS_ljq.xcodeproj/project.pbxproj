@@ -15,6 +15,8 @@
 		AB0D52DF1EAFC25A00F924F6 /* FloorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0D52DE1EAFC25A00F924F6 /* FloorTableViewCell.m */; };
 		AB0D52E51EAFD54C00F924F6 /* FloorTVRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0D52E41EAFD54C00F924F6 /* FloorTVRefreshHeader.m */; };
 		AB2CB3321EB8C58E006DF87F /* ReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2CB3311EB8C58E006DF87F /* ReplyViewController.m */; };
+		AB36DB5C1EC1A99F00A440F2 /* PostTableViewFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB36DB5B1EC1A99F00A440F2 /* PostTableViewFooterView.m */; };
+		AB36DB5E1EC1A9C600A440F2 /* PostTableViewFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB36DB5D1EC1A9C600A440F2 /* PostTableViewFooterView.xib */; };
 		AB4706AE1EAD43C800C06FF1 /* CategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4706AD1EAD43C800C06FF1 /* CategoryView.m */; };
 		AB4706B11EAD43CE00C06FF1 /* CascadingMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4706B01EAD43CE00C06FF1 /* CascadingMenuView.m */; };
 		AB4706CB1EAD450300C06FF1 /* ImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4706C81EAD450300C06FF1 /* ImageTableViewCell.m */; };
@@ -60,12 +62,26 @@
 		AB7C25691EA7944E001E666E /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7C255F1EA7944E001E666E /* Comment.m */; };
 		AB7C256A1EA7944E001E666E /* Floor.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7C25611EA7944E001E666E /* Floor.m */; };
 		AB7C25741EA7AC41001E666E /* ZoneParse.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7C25731EA7AC41001E666E /* ZoneParse.m */; };
+		ABAA33631EC0B54A0080DFFD /* PostHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAA33621EC0B54A0080DFFD /* PostHeaderTableViewCell.m */; };
+		ABAA33651EC0B5750080DFFD /* PostHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABAA33641EC0B5750080DFFD /* PostHeaderTableViewCell.xib */; };
+		ABAA33681EC0B7220080DFFD /* PostImgTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAA33671EC0B7220080DFFD /* PostImgTableViewCell.m */; };
+		ABAA336A1EC0B7420080DFFD /* PostImgTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABAA33691EC0B7420080DFFD /* PostImgTableViewCell.xib */; };
+		ABAA336D1EC0B7B00080DFFD /* PostBodyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAA336C1EC0B7B00080DFFD /* PostBodyTableViewCell.m */; };
+		ABAA336F1EC0B7CB0080DFFD /* PostBodyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABAA336E1EC0B7CB0080DFFD /* PostBodyTableViewCell.xib */; };
+		ABAA33721EC0C2D80080DFFD /* PostTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAA33711EC0C2D80080DFFD /* PostTableViewHeaderFooterView.m */; };
 		ABAB31B31EAE3E4F009590C8 /* MJDIYHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = ABAB31B21EAE3E4F009590C8 /* MJDIYHeader.m */; };
+		ABB7C53B1EC2B3FC00239ED1 /* UITextView+AttachmentUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB7C53A1EC2B3FC00239ED1 /* UITextView+AttachmentUpdate.m */; };
+		ABB7C53E1EC2DFB900239ED1 /* FloorBasicVM.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB7C53D1EC2DFB900239ED1 /* FloorBasicVM.m */; };
+		ABB7C5411EC2E04600239ED1 /* FloorBodyVM.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB7C5401EC2E04600239ED1 /* FloorBodyVM.m */; };
+		ABB7C5441EC2E10700239ED1 /* FloorImageVM.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB7C5431EC2E10700239ED1 /* FloorImageVM.m */; };
+		ABB7C5471EC2E45400239ED1 /* FloorQuoteVM.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB7C5461EC2E45300239ED1 /* FloorQuoteVM.m */; };
+		ABB7C54A1EC2E4CC00239ED1 /* FloorPstatusVM.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB7C5491EC2E4CC00239ED1 /* FloorPstatusVM.m */; };
 		ABDEC9551EB987C200FA0B6C /* HomeParse.m in Sources */ = {isa = PBXBuildFile; fileRef = ABDEC9541EB987C200FA0B6C /* HomeParse.m */; };
 		ABDEC9581EB991C300FA0B6C /* ProfileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABDEC9571EB991C300FA0B6C /* ProfileModel.m */; };
 		ABDEC95C1EB9A81D00FA0B6C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABDEC95B1EB9A81D00FA0B6C /* HomeViewController.m */; };
 		ABDEC95F1EB9CA5E00FA0B6C /* profileHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABDEC95E1EB9CA5E00FA0B6C /* profileHeader.xib */; };
 		ABDEC9621EB9DAA300FA0B6C /* ProfileHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABDEC9611EB9DAA300FA0B6C /* ProfileHeaderView.m */; };
+		ABEEFCEE1EBF074F0070382D /* FloorViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEEFCED1EBF074F0070382D /* FloorViewModel.m */; };
 		ABF382551EB0696E003545CA /* PostHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF382541EB0696E003545CA /* PostHeaderView.xib */; };
 		ABF382591EB069B4003545CA /* PostHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF382581EB069B4003545CA /* PostHeaderView.m */; };
 		ABF3825E1EB09937003545CA /* RS_attributeStringFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF3825D1EB09937003545CA /* RS_attributeStringFactory.m */; };
@@ -108,6 +124,9 @@
 		AB0D52E41EAFD54C00F924F6 /* FloorTVRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FloorTVRefreshHeader.m; path = RS_ljq/Post/view/FloorTVRefreshHeader.m; sourceTree = SOURCE_ROOT; };
 		AB2CB3301EB8C58E006DF87F /* ReplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReplyViewController.h; path = RS_ljq/Post/ReplyViewController.h; sourceTree = SOURCE_ROOT; };
 		AB2CB3311EB8C58E006DF87F /* ReplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReplyViewController.m; path = RS_ljq/Post/ReplyViewController.m; sourceTree = SOURCE_ROOT; };
+		AB36DB5A1EC1A99F00A440F2 /* PostTableViewFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostTableViewFooterView.h; path = RS_ljq/Post/view/PostTableViewFooterView.h; sourceTree = SOURCE_ROOT; };
+		AB36DB5B1EC1A99F00A440F2 /* PostTableViewFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostTableViewFooterView.m; path = RS_ljq/Post/view/PostTableViewFooterView.m; sourceTree = SOURCE_ROOT; };
+		AB36DB5D1EC1A9C600A440F2 /* PostTableViewFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PostTableViewFooterView.xib; path = RS_ljq/Post/view/PostTableViewFooterView.xib; sourceTree = SOURCE_ROOT; };
 		AB4706AC1EAD43C800C06FF1 /* CategoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryView.h; path = RS_ljq/Index/View/CategoryView.h; sourceTree = "<group>"; };
 		AB4706AD1EAD43C800C06FF1 /* CategoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryView.m; path = RS_ljq/Index/View/CategoryView.m; sourceTree = "<group>"; };
 		AB4706AF1EAD43CE00C06FF1 /* CascadingMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CascadingMenuView.h; path = RS_ljq/Index/View/CascadingMenuView.h; sourceTree = "<group>"; };
@@ -193,8 +212,31 @@
 		AB7C25611EA7944E001E666E /* Floor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Floor.m; path = ../Model/Floor.m; sourceTree = "<group>"; };
 		AB7C25721EA7AC41001E666E /* ZoneParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoneParse.h; sourceTree = "<group>"; };
 		AB7C25731EA7AC41001E666E /* ZoneParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoneParse.m; sourceTree = "<group>"; };
+		ABAA33611EC0B54A0080DFFD /* PostHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostHeaderTableViewCell.h; path = RS_ljq/Post/view/PostHeaderTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		ABAA33621EC0B54A0080DFFD /* PostHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostHeaderTableViewCell.m; path = RS_ljq/Post/view/PostHeaderTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		ABAA33641EC0B5750080DFFD /* PostHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PostHeaderTableViewCell.xib; path = RS_ljq/Post/view/PostHeaderTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		ABAA33661EC0B7220080DFFD /* PostImgTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostImgTableViewCell.h; path = RS_ljq/Post/view/PostImgTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		ABAA33671EC0B7220080DFFD /* PostImgTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostImgTableViewCell.m; path = RS_ljq/Post/view/PostImgTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		ABAA33691EC0B7420080DFFD /* PostImgTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PostImgTableViewCell.xib; path = RS_ljq/Post/view/PostImgTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		ABAA336B1EC0B7B00080DFFD /* PostBodyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostBodyTableViewCell.h; path = RS_ljq/Post/view/PostBodyTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		ABAA336C1EC0B7B00080DFFD /* PostBodyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostBodyTableViewCell.m; path = RS_ljq/Post/view/PostBodyTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		ABAA336E1EC0B7CB0080DFFD /* PostBodyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PostBodyTableViewCell.xib; path = RS_ljq/Post/view/PostBodyTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		ABAA33701EC0C2D80080DFFD /* PostTableViewHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostTableViewHeaderFooterView.h; path = RS_ljq/Post/view/PostTableViewHeaderFooterView.h; sourceTree = SOURCE_ROOT; };
+		ABAA33711EC0C2D80080DFFD /* PostTableViewHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostTableViewHeaderFooterView.m; path = RS_ljq/Post/view/PostTableViewHeaderFooterView.m; sourceTree = SOURCE_ROOT; };
 		ABAB31B11EAE3E4F009590C8 /* MJDIYHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJDIYHeader.h; path = RS_ljq/Forum/Views/MJDIYHeader.h; sourceTree = SOURCE_ROOT; };
 		ABAB31B21EAE3E4F009590C8 /* MJDIYHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJDIYHeader.m; path = RS_ljq/Forum/Views/MJDIYHeader.m; sourceTree = SOURCE_ROOT; };
+		ABB7C5391EC2B3FC00239ED1 /* UITextView+AttachmentUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITextView+AttachmentUpdate.h"; path = "RS_ljq/Post/view/UITextView+AttachmentUpdate.h"; sourceTree = SOURCE_ROOT; };
+		ABB7C53A1EC2B3FC00239ED1 /* UITextView+AttachmentUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITextView+AttachmentUpdate.m"; path = "RS_ljq/Post/view/UITextView+AttachmentUpdate.m"; sourceTree = SOURCE_ROOT; };
+		ABB7C53C1EC2DFB900239ED1 /* FloorBasicVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FloorBasicVM.h; path = RS_ljq/Model/VM/FloorBasicVM.h; sourceTree = "<group>"; };
+		ABB7C53D1EC2DFB900239ED1 /* FloorBasicVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FloorBasicVM.m; path = RS_ljq/Model/VM/FloorBasicVM.m; sourceTree = "<group>"; };
+		ABB7C53F1EC2E04600239ED1 /* FloorBodyVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FloorBodyVM.h; path = RS_ljq/Model/VM/FloorBodyVM.h; sourceTree = "<group>"; };
+		ABB7C5401EC2E04600239ED1 /* FloorBodyVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FloorBodyVM.m; path = RS_ljq/Model/VM/FloorBodyVM.m; sourceTree = "<group>"; };
+		ABB7C5421EC2E10700239ED1 /* FloorImageVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloorImageVM.h; sourceTree = "<group>"; };
+		ABB7C5431EC2E10700239ED1 /* FloorImageVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FloorImageVM.m; sourceTree = "<group>"; };
+		ABB7C5451EC2E45300239ED1 /* FloorQuoteVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FloorQuoteVM.h; path = RS_ljq/Model/VM/FloorQuoteVM.h; sourceTree = "<group>"; };
+		ABB7C5461EC2E45300239ED1 /* FloorQuoteVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FloorQuoteVM.m; path = RS_ljq/Model/VM/FloorQuoteVM.m; sourceTree = "<group>"; };
+		ABB7C5481EC2E4CC00239ED1 /* FloorPstatusVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FloorPstatusVM.h; path = RS_ljq/Model/VM/FloorPstatusVM.h; sourceTree = "<group>"; };
+		ABB7C5491EC2E4CC00239ED1 /* FloorPstatusVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FloorPstatusVM.m; path = RS_ljq/Model/VM/FloorPstatusVM.m; sourceTree = "<group>"; };
 		ABDEC9531EB987C200FA0B6C /* HomeParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeParse.h; path = RS_ljq/Home/HomeParse.h; sourceTree = SOURCE_ROOT; };
 		ABDEC9541EB987C200FA0B6C /* HomeParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeParse.m; path = RS_ljq/Home/HomeParse.m; sourceTree = SOURCE_ROOT; };
 		ABDEC9561EB991C300FA0B6C /* ProfileModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileModel.h; path = RS_ljq/Model/ProfileModel.h; sourceTree = "<group>"; };
@@ -204,6 +246,8 @@
 		ABDEC95E1EB9CA5E00FA0B6C /* profileHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = profileHeader.xib; path = RS_ljq/Home/View/profileHeader.xib; sourceTree = "<group>"; };
 		ABDEC9601EB9DAA300FA0B6C /* ProfileHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileHeaderView.h; path = RS_ljq/Home/View/ProfileHeaderView.h; sourceTree = "<group>"; };
 		ABDEC9611EB9DAA300FA0B6C /* ProfileHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileHeaderView.m; path = RS_ljq/Home/View/ProfileHeaderView.m; sourceTree = "<group>"; };
+		ABEEFCEC1EBF074F0070382D /* FloorViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FloorViewModel.h; path = RS_ljq/Model/FloorViewModel.h; sourceTree = "<group>"; };
+		ABEEFCED1EBF074F0070382D /* FloorViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FloorViewModel.m; path = RS_ljq/Model/FloorViewModel.m; sourceTree = "<group>"; };
 		ABF382541EB0696E003545CA /* PostHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostHeaderView.xib; sourceTree = "<group>"; };
 		ABF382571EB069B4003545CA /* PostHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostHeaderView.h; path = RS_ljq/Post/view/PostHeaderView.h; sourceTree = SOURCE_ROOT; };
 		ABF382581EB069B4003545CA /* PostHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostHeaderView.m; path = RS_ljq/Post/view/PostHeaderView.m; sourceTree = SOURCE_ROOT; };
@@ -250,14 +294,28 @@
 		AB0D52DA1EAFC0F400F924F6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AB0D52DB1EAFC21800F924F6 /* CellView.xib */,
+				AB7462B11EC15B71009E7D8F /* Old */,
 				ABF382541EB0696E003545CA /* PostHeaderView.xib */,
 				AB0D52E31EAFD54C00F924F6 /* FloorTVRefreshHeader.h */,
 				AB0D52E41EAFD54C00F924F6 /* FloorTVRefreshHeader.m */,
-				AB0D52DD1EAFC25A00F924F6 /* FloorTableViewCell.h */,
-				AB0D52DE1EAFC25A00F924F6 /* FloorTableViewCell.m */,
 				ABF382571EB069B4003545CA /* PostHeaderView.h */,
 				ABF382581EB069B4003545CA /* PostHeaderView.m */,
+				ABAA33611EC0B54A0080DFFD /* PostHeaderTableViewCell.h */,
+				ABAA33621EC0B54A0080DFFD /* PostHeaderTableViewCell.m */,
+				ABAA33641EC0B5750080DFFD /* PostHeaderTableViewCell.xib */,
+				ABAA33661EC0B7220080DFFD /* PostImgTableViewCell.h */,
+				ABAA33671EC0B7220080DFFD /* PostImgTableViewCell.m */,
+				ABAA33691EC0B7420080DFFD /* PostImgTableViewCell.xib */,
+				ABAA336B1EC0B7B00080DFFD /* PostBodyTableViewCell.h */,
+				ABAA336C1EC0B7B00080DFFD /* PostBodyTableViewCell.m */,
+				ABAA336E1EC0B7CB0080DFFD /* PostBodyTableViewCell.xib */,
+				ABAA33701EC0C2D80080DFFD /* PostTableViewHeaderFooterView.h */,
+				ABAA33711EC0C2D80080DFFD /* PostTableViewHeaderFooterView.m */,
+				AB36DB5A1EC1A99F00A440F2 /* PostTableViewFooterView.h */,
+				AB36DB5B1EC1A99F00A440F2 /* PostTableViewFooterView.m */,
+				AB36DB5D1EC1A9C600A440F2 /* PostTableViewFooterView.xib */,
+				ABB7C5391EC2B3FC00239ED1 /* UITextView+AttachmentUpdate.h */,
+				ABB7C53A1EC2B3FC00239ED1 /* UITextView+AttachmentUpdate.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -340,6 +398,16 @@
 			);
 			name = Forum;
 			path = RS_ljq/htmlHelp;
+			sourceTree = "<group>";
+		};
+		AB7462B11EC15B71009E7D8F /* Old */ = {
+			isa = PBXGroup;
+			children = (
+				AB0D52DD1EAFC25A00F924F6 /* FloorTableViewCell.h */,
+				AB0D52DE1EAFC25A00F924F6 /* FloorTableViewCell.m */,
+				AB0D52DB1EAFC21800F924F6 /* CellView.xib */,
+			);
+			name = Old;
 			sourceTree = "<group>";
 		};
 		AB7C24F31EA78DFD001E666E = {
@@ -459,6 +527,7 @@
 		AB7C25461EA793A6001E666E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ABEEFCEA1EBF07290070382D /* ViewModel */,
 				AB59638C1EB82B930068A531 /* TopicModel.h */,
 				AB59638D1EB82B930068A531 /* TopicModel.m */,
 				AB59638F1EB82DA10068A531 /* ForumTopicModel.h */,
@@ -542,6 +611,25 @@
 				ABDEC9611EB9DAA300FA0B6C /* ProfileHeaderView.m */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		ABEEFCEA1EBF07290070382D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ABB7C53C1EC2DFB900239ED1 /* FloorBasicVM.h */,
+				ABB7C53D1EC2DFB900239ED1 /* FloorBasicVM.m */,
+				ABB7C53F1EC2E04600239ED1 /* FloorBodyVM.h */,
+				ABB7C5401EC2E04600239ED1 /* FloorBodyVM.m */,
+				ABB7C5421EC2E10700239ED1 /* FloorImageVM.h */,
+				ABB7C5431EC2E10700239ED1 /* FloorImageVM.m */,
+				ABB7C5451EC2E45300239ED1 /* FloorQuoteVM.h */,
+				ABB7C5461EC2E45300239ED1 /* FloorQuoteVM.m */,
+				ABB7C5481EC2E4CC00239ED1 /* FloorPstatusVM.h */,
+				ABB7C5491EC2E4CC00239ED1 /* FloorPstatusVM.m */,
+				ABEEFCEC1EBF074F0070382D /* FloorViewModel.h */,
+				ABEEFCED1EBF074F0070382D /* FloorViewModel.m */,
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 		ABF3825A1EB070FF003545CA /* Module */ = {
@@ -713,10 +801,14 @@
 				AB0D52DC1EAFC21800F924F6 /* CellView.xib in Resources */,
 				AB4706FC1EAD482900C06FF1 /* ForumPostCell.xib in Resources */,
 				AB7C250F1EA78DFD001E666E /* LaunchScreen.storyboard in Resources */,
+				AB36DB5E1EC1A9C600A440F2 /* PostTableViewFooterView.xib in Resources */,
+				ABAA336A1EC0B7420080DFFD /* PostImgTableViewCell.xib in Resources */,
+				ABAA33651EC0B5750080DFFD /* PostHeaderTableViewCell.xib in Resources */,
 				AB4707061EAD540700C06FF1 /* HeadView.xib in Resources */,
 				AB7C250C1EA78DFD001E666E /* Assets.xcassets in Resources */,
 				ABF382551EB0696E003545CA /* PostHeaderView.xib in Resources */,
 				AB4706ED1EAD46BB00C06FF1 /* ImageCell.xib in Resources */,
+				ABAA336F1EC0B7CB0080DFFD /* PostBodyTableViewCell.xib in Resources */,
 				AB4706EE1EAD46BB00C06FF1 /* PostCell.xib in Resources */,
 				ABDEC95F1EB9CA5E00FA0B6C /* profileHeader.xib in Resources */,
 				AB7C250A1EA78DFD001E666E /* Main.storyboard in Resources */,
@@ -888,6 +980,7 @@
 				AB4706E71EAD469300C06FF1 /* LoginWorking.m in Sources */,
 				ABDEC9621EB9DAA300FA0B6C /* ProfileHeaderView.m in Sources */,
 				ABDEC9551EB987C200FA0B6C /* HomeParse.m in Sources */,
+				ABAA33681EC0B7220080DFFD /* PostImgTableViewCell.m in Sources */,
 				ABF3825E1EB09937003545CA /* RS_attributeStringFactory.m in Sources */,
 				AB4706EA1EAD46A000C06FF1 /* AppUser.m in Sources */,
 				AB59638E1EB82B930068A531 /* TopicModel.m in Sources */,
@@ -897,7 +990,9 @@
 				ABF888341EA8E07200EF1B34 /* RsNetworking.m in Sources */,
 				ABF382591EB069B4003545CA /* PostHeaderView.m in Sources */,
 				AB4706F41EAD473600C06FF1 /* NSString+DataToString.m in Sources */,
+				ABAA33631EC0B54A0080DFFD /* PostHeaderTableViewCell.m in Sources */,
 				AB5091BD1EBACE7A0041C476 /* LoginInViewController.m in Sources */,
+				ABB7C5411EC2E04600239ED1 /* FloorBodyVM.m in Sources */,
 				AB4706DE1EAD45AB00C06FF1 /* IndexViewController.m in Sources */,
 				AB5963971EB83FD30068A531 /* CornerDetailModel.m in Sources */,
 				AB5963941EB839E40068A531 /* CornerModel.m in Sources */,
@@ -906,19 +1001,26 @@
 				AB7C25381EA78E12001E666E /* HTMLParser.m in Sources */,
 				AB4706AE1EAD43C800C06FF1 /* CategoryView.m in Sources */,
 				ABF8883A1EA8EC6400EF1B34 /* LoginParse.m in Sources */,
+				ABAA336D1EC0B7B00080DFFD /* PostBodyTableViewCell.m in Sources */,
+				ABB7C54A1EC2E4CC00239ED1 /* FloorPstatusVM.m in Sources */,
 				AB0D52E51EAFD54C00F924F6 /* FloorTVRefreshHeader.m in Sources */,
 				ABDEC9581EB991C300FA0B6C /* ProfileModel.m in Sources */,
+				ABAA33721EC0C2D80080DFFD /* PostTableViewHeaderFooterView.m in Sources */,
 				AB2CB3321EB8C58E006DF87F /* ReplyViewController.m in Sources */,
 				AB4706D71EAD456600C06FF1 /* IndexUsrRankingModel.m in Sources */,
 				AB4706FF1EAD4AA900C06FF1 /* ForumTableViewCell.m in Sources */,
 				AB4706CC1EAD450300C06FF1 /* PostTableViewCell.m in Sources */,
 				AB7C25691EA7944E001E666E /* Comment.m in Sources */,
+				ABEEFCEE1EBF074F0070382D /* FloorViewModel.m in Sources */,
 				AB5963911EB82DA10068A531 /* ForumTopicModel.m in Sources */,
 				AB7C256A1EA7944E001E666E /* Floor.m in Sources */,
 				ABAB31B31EAE3E4F009590C8 /* MJDIYHeader.m in Sources */,
 				AB4706F71EAD476700C06FF1 /* ForumViewController.m in Sources */,
+				AB36DB5C1EC1A99F00A440F2 /* PostTableViewFooterView.m in Sources */,
 				AB4706B11EAD43CE00C06FF1 /* CascadingMenuView.m in Sources */,
+				ABB7C53B1EC2B3FC00239ED1 /* UITextView+AttachmentUpdate.m in Sources */,
 				AB4706DD1EAD45AB00C06FF1 /* IndexTableViewDelegate.m in Sources */,
+				ABB7C53E1EC2DFB900239ED1 /* FloorBasicVM.m in Sources */,
 				AB4706CB1EAD450300C06FF1 /* ImageTableViewCell.m in Sources */,
 				AB54FD641EAE00A5006ABF78 /* UINavigationBar+Awesome.m in Sources */,
 				AB7C25451EA79337001E666E /* ForumParse.m in Sources */,
@@ -926,8 +1028,10 @@
 				ABDEC95C1EB9A81D00FA0B6C /* HomeViewController.m in Sources */,
 				AB0A66891EAE32AE0097AE8E /* RSparse.m in Sources */,
 				AB54FD681EAE1E50006ABF78 /* PostViewController.m in Sources */,
+				ABB7C5471EC2E45400239ED1 /* FloorQuoteVM.m in Sources */,
 				AB4706E41EAD468400C06FF1 /* RSAFHTTPSessionManager.m in Sources */,
 				AB4706F31EAD473600C06FF1 /* NSData+CleanData.m in Sources */,
+				ABB7C5441EC2E10700239ED1 /* FloorImageVM.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

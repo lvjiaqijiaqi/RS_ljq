@@ -62,7 +62,6 @@
     HTMLNode *bodyNode = [parser body];
     
     
-    //topicLis_imgHot
     HTMLNode * postNode = [bodyNode findChildWithAttribute:@"id" matchingName:@imageTopicDivName allowPartial:NO];
     NSArray<HTMLNode *> *topicLis =  [postNode findChildTags:@"li"];
     

@@ -14,6 +14,7 @@
 @property(strong,nonatomic) NSString *body;
 @property(strong,nonatomic) NSString *uid;
 @property(strong,nonatomic) NSString *username;
+@property(strong,nonatomic) NSString *headImg;
 @property(strong,nonatomic) NSString *cid;
 
 @end

@@ -27,4 +27,7 @@
     }
     return self;
 }
+
+-(void)setAttributeBody:(NSString *)content{
+    }
 @end

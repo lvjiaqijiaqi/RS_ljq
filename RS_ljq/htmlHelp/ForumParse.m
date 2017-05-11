@@ -12,6 +12,8 @@
 #import "NSString+DataToString.h"
 
 #import "Floor.h"
+#import "Comment.h"
+
 #import "ForumTopicModel.h"
 
 @implementation ForumParse
@@ -39,8 +41,12 @@
         HTMLNode *context = [cm findChildOfClass:@"psti"];
         NSString *url = [name getAttributeNamed:@"href"];
         HTMLNode *time = [[cm findChildOfClass:@"xg1"] findChildTag:@"span"];
-        NSDictionary *cmDic = [NSDictionary dictionaryWithObjectsAndKeys:[name contents],@"name",[context contents],@"ontext",[time contents],@"time",url,@"url",nil];
-        [cmListArr addObject:cmDic];
+        Comment *c = [[Comment alloc] init];
+        c.body =  [NSString clearRN:[context contents]];
+        c.username = [NSString clearRN:[name contents]];
+        c.time = [NSString clearRN:[time contents]];
+        c.headImg =[NSString clearRN:url] ;
+        [cmListArr addObject:c];
     }
     return cmListArr;
 }
@@ -117,7 +123,10 @@
     HTMLNode * pl_topNode = [postNode findChildWithAttribute:@"id" matchingName:@"pl_top" allowPartial:NO];
     if (pl_topNode) { //有金币信息
         topic.t_award = [[pl_topNode findChildOfClass:@"pls vm ptm"] allContents];
-        topic.t_awardDetails = [[pl_topNode findChildOfClass:@"plc ptm pbm xi1"] allContents];
+        topic.t_awardDetails = [NSString stringWithFormat:@"回帖得%ld金币",(long)[[[pl_topNode findChildOfClass:@"plc ptm pbm xi1"] allContents] requireFristInt]];
+    }else{
+        topic.t_award = @"";
+        topic.t_awardDetails = @"";
     }
     
     NSMutableArray<Floor*> *floors = [NSMutableArray arrayWithCapacity:10];
@@ -133,16 +142,34 @@
         HTMLNode *em = [authi findChildTag:@"em"];
         floor.time = [[em findChildTag:@"span"] allContents];
         
-       // HTMLNode *pi = [postNode findChildOfClass:@"pi"];
-       // floor.floorNum = [[pi findChildTag:@"span"] allContents];
+        HTMLNode *pi = [[postNode findChildOfClass:@"plc"] findChildOfClass:@"pi"];
+        if (pi) {
+            floor.floorNum = @"";
+            if([pi findChildTag:@"a"]){
+                floor.floorNum = [NSString stringWithFormat:@"#%ld",(long)[[[pi findChildTag:@"a"] allContents] requireFristInt]];
+            }
+        }
         
         HTMLNode *plc = [postNode findChildOfClass:@"t_fsz"];
         HTMLNode *quoteNode = [plc findChildOfClass:@"quote"];
         if (quoteNode) {
-            floor.quote = [quoteNode allContents];
+            floor.quote =  [quoteNode allContents];
         }
-        floor.body = [@"" clearRN:[[plc findChildOfClass:@"t_f"] allContents]];
         
+        //__block NSMutableString *str = [NSMutableString string];
+        NSMutableArray *imgArr =  [NSMutableArray array];
+        NSMutableString *str = [NSMutableString string];
+        
+        //
+        if ([[postNode findChildOfClass:@"t_f"] findChildOfClass:@"pstatus"]) {
+            floor.pstatus = [[[postNode findChildOfClass:@"t_f"] findChildOfClass:@"pstatus"] allContents];
+        }
+        
+        [self parseBody:[postNode findChildOfClass:@"t_f"] withImgs:imgArr forStr:str];
+        floor.body = str;
+        floor.imgs = imgArr;
+        
+        //提取图片
         floor.user = nil;
         if (isLogin) {
             HTMLNode *userNode = [postNode findChildOfClass:@"pls"];
@@ -152,8 +179,8 @@
         HTMLNode *cm = [postNode findChildOfClass:@"cm"];
         floor.comments =  cm ?[self parseComment:cm] : [NSMutableArray array];
         
-       // HTMLNode *rate = [postNode findChildOfClass:@"rate"];
-       // floor.rates =  cm ?[self parseRate:rate] : [NSMutableArray array];
+        // HTMLNode *rate = [postNode findChildOfClass:@"rate"];
+        // floor.rates =  cm ?[self parseRate:rate] : [NSMutableArray array];
         
         [floors addObject:floor];
         
@@ -166,6 +193,82 @@
     
     _topic = topic;
     
+}
+
+-(void)parseBody:(HTMLNode *)bodyNode withImgs:(NSMutableArray *)imgs forStr:(NSMutableString *)str{
+    NSArray<HTMLNode *> *childrens = [bodyNode children];
+    if (childrens.count == 0) {
+        return ;
+    }
+    __block NSInteger brCount = 0;
+    [childrens enumerateObjectsUsingBlock:^(HTMLNode * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj.tagName isEqual: @"br"] && str.length > 0 && ![[str substringFromIndex:str.length-1] isEqualToString:@"\n"]) {
+             [str appendString:@"\n"];
+        }else{
+            if (obj.nodetype == HTMLTextNode) {
+                if (![[obj allContents] isEqualToString:@"\n"] && ![[obj allContents] isEqualToString:@"\r\n"]) {
+                    [str appendString: [NSString clearMultipleRNS:[@"" clearRN:obj.allContents]]];
+                }
+            }else{
+                brCount = 0;
+                if ([obj.tagName  isEqual: @"img"]) {
+                    NSDictionary *imgDic = [self pareseImg:obj];
+                    if (imgDic) {
+                        [imgDic setValue:[NSNumber numberWithInteger:str.length] forKey:@"location"];
+                        [str appendString:@"-"];
+                        [imgs addObject:imgDic];
+                    }
+                }else if([obj.tagName  isEqual: @"ignore_js_op"]) {
+                    if ([obj findChildTag:@"img"]) {
+                        NSArray<HTMLNode *>  *imgNodes = [obj findChildTags:@"img"];
+                        [imgNodes enumerateObjectsUsingBlock:^(HTMLNode * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                            NSDictionary *imgDic = [self pareseImg:obj];
+                            if (imgDic) {
+                                [imgDic setValue:[NSNumber numberWithInteger:str.length] forKey:@"location"];
+                                [str appendString:@"-"];
+                                [imgs addObject:imgDic];
+                            }
+                        }];
+                    }
+                }else{
+                    if([obj.tagName isEqual: @"div"] && str.length > 0 && ![[str substringFromIndex:str.length-1] isEqualToString:@"\n"])
+                        [str appendString:@"\n"];
+                    if ([[obj getAttributeNamed:@"class"] isEqualToString:@"quote"]|| [[obj getAttributeNamed:@"class"] isEqualToString:@"pstatus"]) {
+                        return;
+                    }
+                    [self parseBody:obj withImgs:imgs forStr:str];
+                }
+            }
+        }
+    }];
+    return ;
+}
+
+-(NSDictionary *)pareseImg:(HTMLNode *)imgNode{
+        if ([imgNode getAttributeNamed:@"src"] || [imgNode getAttributeNamed:@"file"]) {
+            NSMutableDictionary *imgDic = [NSMutableDictionary dictionaryWithCapacity:8];
+            if([imgNode getAttributeNamed:@"src"]){
+                [imgDic setObject:[imgNode getAttributeNamed:@"src"] forKey:@"src"];
+            }else{
+                [imgDic setObject:[imgNode getAttributeNamed:@"file"] forKey:@"src"];
+            }
+            if ([imgNode getAttributeNamed:@"width"]) {
+                [imgDic setObject:[imgNode getAttributeNamed:@"width"] forKey:@"width"];
+            }
+            if ([imgNode getAttributeNamed:@"height"]) {
+                [imgDic setObject:[imgNode getAttributeNamed:@"height"] forKey:@"height"];
+            }
+            if ([imgNode getAttributeNamed:@"smilieid"]) {
+                [imgDic setObject:[imgNode getAttributeNamed:@"smilieid"] forKey:@"smilieid"];
+                [imgDic setObject:[NSString stringWithFormat:@"http://rs.xidian.edu.cn/%@",[imgNode getAttributeNamed:@"src"]] forKey:@"src"];
+            }else{
+                if ([[imgNode getAttributeNamed:@"src"] containsString:@"common/none"]) {
+                    [imgDic setObject:[NSString stringWithFormat:@"http://rs.xidian.edu.cn%@", [[imgNode getAttributeNamed:@"file"] substringFromIndex:1]] forKey:@"src"];
+                }
+            }
+            return imgDic;
+        }
+    return nil;
 }
 
 -(void)ReportError:(NSError *)error{

@@ -153,7 +153,6 @@
         <!--Login In View Controller-->
         <scene sceneID="FIa-Pp-TcT">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rKO-F2-Og1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="rCV-d3-gCp" customClass="LoginInViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hoH-Kq-T2F"/>
@@ -261,6 +260,7 @@
                         <outlet property="unameLabel" destination="Jfe-KT-pbf" id="N1J-ht-bDV"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rKO-F2-Og1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2214" y="-640"/>
         </scene>
